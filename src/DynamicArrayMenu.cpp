@@ -73,7 +73,13 @@ DynamicArrayMenu::DynamicArrayMenu()
             break;
 
         case 4:
-            dynamicArray.checkIfDownsize();
+            {
+                int id;
+                cout<<"Podaj indeks: ";
+                cin>>id;
+
+                dynamicArray.removeFromDyArray(id);
+            }
 
             break;
 

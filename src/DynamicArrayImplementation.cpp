@@ -132,5 +132,35 @@ void DynamicArrayImplementation::removeFromDyArray(int index)
     else
     {
 
+    int *newArr;
+    newArr = new int[arrayCapacity];
+
+    for(int i=0; i<index; i++)
+    {
+        newArr[i]=dArray[i];
+    }
+    cout<<"Przepisano wczesniejsze wartosci"<<endl;
+    printDyArray();
+
+    arraySize--;
+    cout<<"Pominieto usuwana wartosc"<<endl;
+
+    for(int j=index; j<arraySize; j++)
+    {
+        newArr[j]=dArray[j+1];
+    }
+    cout<<"Skopiowano reszte tablicy"<<endl;
+    printDyArray();
+    delete[] dArray;
+    dArray = newArr;
+    cout<<"Wszystko gotowe"<<endl;
+    printDyArray();
+
+    cout<<"Sprawdzanie czy nie zmniejszyc tablicy"<<endl;
+    checkIfDownsize();
+    cout<<"Sprawdzono"<<endl;
+
+    cout<<"Voila"<<endl;
+    printDyArray();
     }
 }
