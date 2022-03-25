@@ -103,7 +103,7 @@ void HeapImplenetation::printHeap1()
 
 void HeapImplenetation::addToHeap(int value)
 {
-    if(heapSize == lengthSize) cout<<"Kopiec jest pe³ny!"<<endl;
+    if(heapSize == lengthSize) cout<<"Kopiec jest pelny!"<<endl;
 
     else
     {

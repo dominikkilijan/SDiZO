@@ -16,6 +16,8 @@ class DynamicArrayImplementation
         void checkIfResize();
         void addToDyArr(int, int);
         void printDyArray();
+        void checkIfDownsize();
+        void removeFromDyArray(int);
 
 
     protected:

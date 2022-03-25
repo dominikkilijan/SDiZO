@@ -10,6 +10,7 @@ int heapWork = 1;
 
 HeapMenu::HeapMenu()
 {
+        heapWork = 0;
         cout<<"Ile elementow w kopcu?"<<endl;
         cin>>numberOfElements;
 
@@ -65,7 +66,7 @@ HeapMenu::HeapMenu()
 
         case 5:
             {
-            heapWork =0;
+            heapWork =1;
             Menu menu;
             delete this;
             }

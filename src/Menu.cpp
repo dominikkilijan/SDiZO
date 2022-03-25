@@ -27,7 +27,7 @@ Menu::Menu()
         case 1:
             {
             DynamicArrayMenu dynamicArrayMenu;
-            //delete this;
+            delete this;
             }
             break;
 

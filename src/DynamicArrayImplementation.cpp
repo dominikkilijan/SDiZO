@@ -6,7 +6,6 @@ using namespace std;
 int arrayCapacity;
 int basicArray;
 int arraySize;
-int *arrayPtr;
 
 DynamicArrayImplementation::DynamicArrayImplementation(int cap, int initSize)
 {
@@ -52,11 +51,37 @@ void DynamicArrayImplementation::checkIfResize()
         //delete []newArray;
 
     }
-    // zmniejszanie tablicy
+}
+void DynamicArrayImplementation::checkIfDownsize()
+{
+    if (arraySize<=arrayCapacity/4)
+    {
+        if (arrayCapacity == 0) cout<<"Tablica jest pusta"<<endl;
+        else arrayCapacity /= 2;
+
+
+        int *newArray;
+        newArray = new int[arrayCapacity];
+
+        for(int i=0; i<(arrayCapacity/2);i++)
+        {
+            newArray[i]=dArray[i];
+            cout<<newArray[i]<<"    "<<dArray[i]<<endl;
+        }
+        delete[] dArray;
+        cout<<"Zmniejszono miejsce w tablicy"<<endl;
+        dArray = newArray;
+        printDyArray();
+
+    }
 }
 
 void DynamicArrayImplementation::addToDyArr(int index, int value)
 {
+    if (index > arraySize)  cout<<"Nie mozna dodac elementu w to miejsce"<<endl;
+
+    else
+    {
     checkIfResize();
     cout<<"Dodawanie nowego elementu"<<endl;
     printDyArray();
@@ -87,6 +112,7 @@ void DynamicArrayImplementation::addToDyArr(int index, int value)
     dArray = newArr;
     cout<<"Wszystko gotowe"<<endl;
     printDyArray();
+    }
 }
 
 void DynamicArrayImplementation::printDyArray()
@@ -96,4 +122,15 @@ void DynamicArrayImplementation::printDyArray()
         cout<<(int)dArray[i]<<"  ";
     }
     cout<<endl;
+}
+
+
+
+void DynamicArrayImplementation::removeFromDyArray(int index)
+{
+    if (index > arraySize)  cout<<"Nie mozna usunac elementu z tego miejsca"<<endl;
+    else
+    {
+
+    }
 }

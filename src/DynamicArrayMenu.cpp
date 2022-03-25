@@ -40,6 +40,26 @@ DynamicArrayMenu::DynamicArrayMenu()
         {
         case 1:
             {
+                int val;
+                cout<<"Podaj wartosc: ";
+                cin>>val;
+                dynamicArray.addToDyArr(0, val);
+            }
+
+            break;
+
+        case 2:
+            {
+                int val;
+                cout<<"Podaj wartosc: ";
+                cin>>val;
+                dynamicArray.addToDyArr(dynamicArray.arraySize, val);
+            }
+
+            break;
+
+        case 3:
+            {
                 int id;
                 cout<<"Podaj indeks: ";
                 cin>>id;
@@ -52,15 +72,8 @@ DynamicArrayMenu::DynamicArrayMenu()
 
             break;
 
-        case 2:
-
-            break;
-
-        case 3:
-
-            break;
-
         case 4:
+            dynamicArray.checkIfDownsize();
 
             break;
 
