@@ -1,0 +1,63 @@
+# depslib dependency file v1.0
+1648159594 source:d:\studia\pwr\sdizo\p\projekt1\src\dynamicarrayimplementation.cpp
+	<iostream>
+	"DynamicArrayImplementation.h"
+
+1648161323 d:\studia\pwr\sdizo\p\projekt1\include\dynamicarrayimplementation.h
+
+1648142999 source:d:\studia\pwr\sdizo\p\projekt1\src\heapimplenetation.cpp
+	"HeapImplenetation.h"
+	<math.h>
+	<iostream>
+	"HeapMenu.h"
+
+1648129921 d:\studia\pwr\sdizo\p\projekt1\include\heapimplenetation.h
+
+1648034760 source:d:\studia\pwr\sdizo\p\projekt1\src\listimplementation.cpp
+	"ListImplementation.h"
+
+1648034759 d:\studia\pwr\sdizo\p\projekt1\include\listimplementation.h
+
+1648037909 source:d:\studia\pwr\sdizo\p\projekt1\main.cpp
+	<iostream>
+	"Menu.h"
+
+1648119625 d:\studia\pwr\sdizo\p\projekt1\include\menu.h
+	<iostream>
+
+1648121372 source:d:\studia\pwr\sdizo\p\projekt1\src\menu.cpp
+	<iostream>
+	"Menu.h"
+	"HeapMenu.h"
+	"DynamicArrayMenu.h"
+	"ListMenu.h"
+
+1648137880 source:d:\studia\pwr\sdizo\p\projekt1\src\main.cpp
+	<iostream>
+	"Menu.h"
+	"HeapImplenetation.h"
+
+1648155954 source:d:\studia\pwr\sdizo\p\projekt1\src\dynamicarraymenu.cpp
+	<iostream>
+	"DynamicArrayMenu.h"
+	"Menu.h"
+	"DynamicArrayImplementation.h"
+
+1648152353 d:\studia\pwr\sdizo\p\projekt1\include\dynamicarraymenu.h
+
+1648121336 source:d:\studia\pwr\sdizo\p\projekt1\src\listmenu.cpp
+	<iostream>
+	"ListMenu.h"
+	"Menu.h"
+
+1648120661 d:\studia\pwr\sdizo\p\projekt1\include\listmenu.h
+
+1648125526 source:d:\studia\pwr\sdizo\p\projekt1\src\heapmenu.cpp
+	<iostream>
+	"HeapMenu.h"
+	"Menu.h"
+	"HeapImplenetation.h"
+
+1648122329 d:\studia\pwr\sdizo\p\projekt1\include\heapmenu.h
+	<HeapMenu.h>
+
