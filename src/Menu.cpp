@@ -6,6 +6,8 @@
 
 using namespace std;
 
+int work =0;
+
 Menu::Menu()
 {
         while(work == 0)

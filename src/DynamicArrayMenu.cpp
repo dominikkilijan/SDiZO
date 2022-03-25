@@ -5,6 +5,8 @@
 
 using namespace std;
 
+int arrayWork = 0;
+
 DynamicArrayMenu::DynamicArrayMenu()
 {
         cout<<"Poczatkowy limit elementow w dynamicznej tablicy?"<<endl;
@@ -17,6 +19,7 @@ DynamicArrayMenu::DynamicArrayMenu()
 
         DynamicArrayImplementation dynamicArray(initialCap, numberOfElements);
 
+        arrayWork = 0;
         while(arrayWork == 0)
         {
         int arrayChoice=0;
