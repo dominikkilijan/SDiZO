@@ -114,6 +114,7 @@ DynamicArrayMenu::DynamicArrayMenu()
 
         case 9:
             {
+            arrayWork=1;
             Menu menu;
             delete this;
             }

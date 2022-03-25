@@ -1,11 +1,17 @@
 #include <iostream>
 #include "ListMenu.h"
 #include "Menu.h"
+#include "ListImplementation.h"
 
 using namespace std;
 
 ListMenu::ListMenu()
 {
+
+
+        ListImplementation linkedList;
+
+        listWork = 0;
         while(listWork == 0)
         {
         int listChoice=0;
@@ -28,18 +34,41 @@ ListMenu::ListMenu()
         switch (listChoice)
         {
         case 1:
+            {
+                int val;
+                cout<<"Podaj wartosc: ";
+                cin>>val;
+                linkedList.addToList(0, val);
+            }
 
             break;
 
         case 2:
+            {
+                int val;
+                cout<<"Podaj wartosc: ";
+                cin>>val;
+                linkedList.addToList(linkedList.listSize, val);
+            }
+
 
             break;
 
         case 3:
+            {
+                int id;
+                cout<<"Podaj indeks: ";
+                cin>>id;
+                int val;
+                cout<<"Podaj wartosc: ";
+                cin>>val;
+                linkedList.addToList(id, val);
+            }
 
             break;
 
         case 4:
+            linkedList.printList();
 
             break;
 
@@ -71,6 +100,6 @@ ListMenu::ListMenu()
 
 ListMenu::~ListMenu()
 {
-    //cout<<"elo list menu"<<endl;
+    cout<<"elo list menu"<<endl;
     //system("cls"); // clear console
 }

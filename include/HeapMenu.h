@@ -11,7 +11,7 @@ class HeapMenu
         virtual ~HeapMenu();
 
         int heapChoice;
-        int heapWork;
+        int heapWork=1;
         int numberOfElements;
 
 
