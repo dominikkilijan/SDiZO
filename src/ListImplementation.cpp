@@ -196,3 +196,18 @@ void ListImplementation::clearList()
     }
 }
 
+void ListImplementation::searchList(int value)
+{
+    newNode = head;
+    for (int i=0; i<listSize; i++)
+    {
+        if(newNode->data==value)
+        {
+            cout<<"Znaleziono wartosc na indeksie: "<<(i)<<endl;
+            return;
+        }
+        newNode = newNode->nextNode;
+    }
+    cout<<"Nie ma takiej wartosci w tablicy"<<endl;
+}
+

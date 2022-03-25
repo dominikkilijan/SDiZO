@@ -30,6 +30,7 @@ class ListImplementation
         void printListBackwards();
         void removeFromList(int);
         void clearList();
+        void searchList(int);
 
 
     protected:

@@ -88,14 +88,18 @@ ListMenu::ListMenu()
             break;
 
         case 7:
-            linkedList.clearList();
-
+            {
+                int val;
+                cout<<"Podaj wartosc: ";
+                cin>>val;
+                linkedList.searchList(val);
+            }
             break;
 
         case 8:
             {
-            linkedList.printList();
-            linkedList.printListBackwards();
+                linkedList.printList();
+                linkedList.printListBackwards();
             }
 
             break;
