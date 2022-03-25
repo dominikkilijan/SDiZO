@@ -73,6 +73,16 @@ DynamicArrayMenu::DynamicArrayMenu()
             break;
 
         case 4:
+            dynamicArray.removeFromDyArray(0);
+
+            break;
+
+        case 5:
+            dynamicArray.removeFromDyArray(dynamicArray.arraySize);
+
+            break;
+
+        case 6:
             {
                 int id;
                 cout<<"Podaj indeks: ";
@@ -83,15 +93,14 @@ DynamicArrayMenu::DynamicArrayMenu()
 
             break;
 
-        case 5:
-
-            break;
-
-        case 6:
-
-            break;
-
         case 7:
+            {
+                int val;
+                cout<<"Podaj wartosc: ";
+                cin>>val;
+                dynamicArray.arraySearch(val);
+            }
+
 
             break;
 
@@ -112,6 +121,6 @@ DynamicArrayMenu::DynamicArrayMenu()
 
 DynamicArrayMenu::~DynamicArrayMenu()
 {
-    //cout<<"elo array menu"<<endl;
+    cout<<"elo array menu"<<endl;
     //system("cls"); // clear console
 }

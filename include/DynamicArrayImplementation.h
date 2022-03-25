@@ -18,6 +18,7 @@ class DynamicArrayImplementation
         void printDyArray();
         void checkIfDownsize();
         void removeFromDyArray(int);
+        void arraySearch(int);
 
 
     protected:

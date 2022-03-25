@@ -164,3 +164,16 @@ void DynamicArrayImplementation::removeFromDyArray(int index)
     printDyArray();
     }
 }
+
+void DynamicArrayImplementation::arraySearch(int value)
+{
+    for (int i=0; i<arraySize; i++)
+    {
+        if(dArray[i]==value)
+        {
+            cout<<"Znaleziono wartosc na indeksie: "<<(i)<<endl;
+            return;
+        }
+    }
+    cout<<"Nie ma takiej wartosci w tablicy"<<endl;
+}
