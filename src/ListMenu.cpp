@@ -68,8 +68,11 @@ ListMenu::ListMenu()
             break;
 
         case 4:
-            linkedList.printList();
+            {
 
+            linkedList.printList();
+            linkedList.printListBackwards();
+            }
             break;
 
         case 5:

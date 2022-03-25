@@ -27,6 +27,7 @@ class ListImplementation
 
         void addToList(int, int);
         void printList();
+        void printListBackwards();
 
     protected:
 
