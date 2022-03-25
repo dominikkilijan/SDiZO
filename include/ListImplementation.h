@@ -28,6 +28,9 @@ class ListImplementation
         void addToList(int, int);
         void printList();
         void printListBackwards();
+        void removeFromList(int);
+        void clearList();
+
 
     protected:
 

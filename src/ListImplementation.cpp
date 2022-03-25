@@ -11,7 +11,70 @@ ListImplementation::ListImplementation()
 
 ListImplementation::~ListImplementation()
 {
-    //dtor
+    cout<<"elo linked list"<<endl;
+    clearList();
+    delete newNode;
+}
+
+void ListImplementation::removeFromList(int index)
+{
+    if (index < 0 || index > listSize || listSize == 0) cout<<"Nie mozna usunac elementu. Nieprawidlowy numer indeksu"<<endl;
+
+    else if (listSize == 1) // usuwanie ostatniego elementu
+    {
+        delete head;
+        listSize--;
+        cout<<"Usunieto ostatni element. Lista jest pusta"<<endl;
+    }
+
+    else if (index == 0) //usuwanie pierwszego elementu
+    {
+
+        newNode = head->nextNode;
+        newNode->prevNode = nullptr;
+        //temp.nextNode = nullptr;
+        delete head;
+        head = newNode;
+
+        listSize--;
+        cout<<"Usunieto element"<<endl;
+    }
+    else if (index == listSize) //usuwanie elementu z konca
+    {
+        newNode = tail->prevNode;
+        newNode->nextNode = nullptr;
+
+        delete tail;
+        tail = newNode;
+
+        listSize--;
+        cout<<"Usunieto element"<<endl;
+    }
+    else if (index > 0 && index < listSize) // usuwanie ze srodka
+    {
+        Node* temp = head; //pomocniczy wskaznik
+
+            for(int i=0; i<index; i++)
+            {
+                temp = temp->nextNode;
+            }
+
+            newNode = temp->nextNode;
+            newNode->prevNode = temp->prevNode;
+            newNode = temp->prevNode;
+            newNode->nextNode= temp->nextNode;
+            temp->nextNode = nullptr;
+            temp->prevNode = nullptr;
+
+            delete temp;
+
+            listSize--;
+            cout<<"Usunieto element"<<endl;
+    }
+
+
+   printList();
+   cout<<"listSize: "<<listSize<<endl;
 }
 
 void ListImplementation::addToList(int index, int value)
@@ -88,6 +151,7 @@ void ListImplementation::addToList(int index, int value)
     }
     else cout<<"Wystapil blad przy dodawaniu elementu"<<endl;
     listSize++;
+    cout<<"listSize: "<<listSize<<endl;
 }
 
 void ListImplementation::printList()
@@ -123,3 +187,12 @@ void ListImplementation::printListBackwards()
     cout<<endl;
     }
 }
+
+void ListImplementation::clearList()
+{
+    while (listSize != 0)
+    {
+        removeFromList(0);
+    }
+}
+

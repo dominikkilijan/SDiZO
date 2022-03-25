@@ -68,26 +68,35 @@ ListMenu::ListMenu()
             break;
 
         case 4:
-            {
+            linkedList.removeFromList(0);
 
-            linkedList.printList();
-            linkedList.printListBackwards();
-            }
             break;
 
         case 5:
+            linkedList.removeFromList(linkedList.listSize);
 
             break;
 
         case 6:
+            {
+                int id;
+                cout<<"Podaj indeks: ";
+                cin>>id;
+                linkedList.removeFromList(id);
+            }
 
             break;
 
         case 7:
+            linkedList.clearList();
 
             break;
 
         case 8:
+            {
+            linkedList.printList();
+            linkedList.printListBackwards();
+            }
 
             break;
 
