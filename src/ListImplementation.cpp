@@ -18,7 +18,7 @@ ListImplementation::~ListImplementation()
 
 void ListImplementation::removeFromList(int index)
 {
-    if (index < 0 || index > listSize || listSize == 0) cout<<"Nie mozna usunac elementu. Nieprawidlowy numer indeksu"<<endl;
+    if (index < 0 || index > listSize-1 || listSize == 0) cout<<"Nie mozna usunac elementu. Nieprawidlowy numer indeksu"<<endl;
 
     else if (listSize == 1) // usuwanie ostatniego elementu
     {
@@ -51,11 +51,33 @@ void ListImplementation::removeFromList(int index)
     }
     else if (index > 0 && index < listSize) // usuwanie ze srodka
     {
-        Node* temp = head;
+       /* Node* temp = head;
 
             for(int i=0; i<index; i++)
             {
                 temp = temp->nextNode;
+            }*/
+            Node* temp;
+
+            if (index <= listSize/2) // dla pierwszej polowy wezlow pomocniczy wskaznik porusza sie od glowy
+            {
+
+            temp = head;
+            cout<<"Ruszam sie od glowy"<<endl;
+            for(int i=0; i<index; i++)
+            {
+                temp = temp->nextNode;
+            }
+            }
+            if (index > listSize/2) // dla drugiej polowy wezlow pomocniczy wskaznik porusza sie od ogona
+            {
+
+            temp = tail;
+            cout<<"Ruszam sie od ogona"<<endl;
+            for(int i=(listSize-1); i>index; i--)
+            {
+                temp = temp->prevNode;
+            }
             }
 
             newNode = temp->nextNode;
@@ -124,12 +146,27 @@ void ListImplementation::addToList(int index, int value)
             cout<<"Dodawanie do srodka"<<endl;
             newNode = new Node; //dodawanie elementu do srodka listy
             newNode->data = value;
+            Node* temp;
 
-            Node* temp = head;
+            if (index <= listSize/2) // dla pierwszej polowy wezlow pomocniczy wskaznik porusza sie od glowy
+            {
 
+            temp = head;
+            cout<<"Ruszam sie od glowy"<<endl;
             for(int i=0; i<index; i++)
             {
                 temp = temp->nextNode;
+            }
+            }
+            if (index > listSize/2) // dla drugiej polowy wezlow pomocniczy wskaznik porusza sie od ogona
+            {
+
+            temp = tail;
+            cout<<"Ruszam sie od ogona"<<endl;
+            for(int i=(listSize-1); i>index; i--)
+            {
+                temp = temp->prevNode;
+            }
             }
 
             newNode->nextNode = temp; //gimnastyka wskaznikow
