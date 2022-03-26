@@ -9,14 +9,17 @@ int arrayCapacity;
 int basicArray;
 int arraySize;
 
-DynamicArrayImplementation::DynamicArrayImplementation(int cap, int initSize)
+DynamicArrayImplementation::DynamicArrayImplementation(int cap)
 {
 
+    cout<<"Poczatek konstruktora"<<endl;
     if(cap<0) cout<<"Nieprawidlowy rozmiar tablicy!"<<endl;
     arrayCapacity = cap;
-    arraySize = initSize;
+    arraySize = 0;
     dArray = new int[arrayCapacity];
 
+
+    cout<<"Koniec konstruktora konstruktora"<<endl;
 
 }
 

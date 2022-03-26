@@ -3,7 +3,7 @@
 #include "HeapMenu.h"
 #include "DynamicArrayMenu.h"
 #include "ListMenu.h"
-#include <fstream>
+//#include <fstream>
 
 using namespace std;
 
@@ -15,9 +15,11 @@ Menu::Menu()
 
 
 
-        switch (initChoice)
+       /* switch (initChoice)
         {
         case 1:
+
+
             {
                 cout<<"No to se wpisuj"<<endl;
             }
@@ -32,7 +34,7 @@ Menu::Menu()
                 cout<<"Wczytano wartosci"<<endl;
             }
             break;
-        }
+        }*/
 
 
 
@@ -68,7 +70,8 @@ Menu::Menu()
                     {
                     cout<<"No to se wpisuj"<<endl;
 
-                    DynamicArrayMenu dynamicArrayMenu;
+                    DynamicArrayMenu dynamicArrayMenu(initChoice);
+
                     }
                     break;
                 case 2:
@@ -79,13 +82,17 @@ Menu::Menu()
                 case 3:
                     {
                     cout<<"Wczytanie wartosci"<<endl;
-                    getFileInfo();
+                    //getFileInfo();
+                    cout<<"Poczatkowy limit elementow w dynamicznej tablicy?"<<endl;
+                    int initialCap;
+                    cin>>initialCap;
 
+                    DynamicArrayMenu dynamicArrayMenu(initChoice);
                     }
                     break;
                 }
 
-            DynamicArrayMenu dynamicArrayMenu;
+            //DynamicArrayMenu dynamicArrayMenu;
             delete this;
             }
             break;
@@ -116,44 +123,6 @@ Menu::Menu()
 Menu::~Menu()
 {
     cout<<"elo menu"<<endl;
-}
-
-void Menu::getFileInfo()
-{
-    file.open("Values.txt", ios::in);
-    int val;
-
-    if(file.is_open())
-    {
-    file >> fileSize;
-    if(file.fail())  cout << "File error - READ SIZE" << endl;
-    else
-    {
-    fileArray = new int [fileSize];
-    int fileArray[fileSize];
-    cout<<"File size: "<<fileSize<<endl;
-
-    for(int i = 0; i < fileSize; i++)
-    {
-        file >> val;
-        cout<<"Val: "<<val<<endl;
-
-        if(file.fail())
-        {
-            cout << "File error - READ DATA" << endl;
-            break;
-        }
-        else
-        {
-            fileArray[i] = val;
-            cout<<"W tablicy: "<<fileArray[i]<<endl;
-            //file.
-        }
-    }
-    }
-    file.close();
-    }
-    else    cout << "File error - OPEN" << endl;
 }
 
 

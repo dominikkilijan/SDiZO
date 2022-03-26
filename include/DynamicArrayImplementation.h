@@ -5,10 +5,9 @@
 class DynamicArrayImplementation
 {
     public:
-        DynamicArrayImplementation(int, int);
+        DynamicArrayImplementation(int);
         virtual ~DynamicArrayImplementation();
 
-        //int basicArray[8];
         int *dArray;
         int arraySize;
         int arrayCapacity;

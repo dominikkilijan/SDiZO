@@ -13,6 +13,7 @@ class Menu
         virtual ~Menu();
         int choice;
         int work;
+
         int *fileArray;
         int fileSize;
         fstream file;

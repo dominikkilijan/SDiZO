@@ -2,32 +2,52 @@
 #include "DynamicArrayMenu.h"
 #include "Menu.h"
 #include "DynamicArrayImplementation.h"
+#include <fstream>
 
 using namespace std;
 
 int arrayWork = 0;
+fstream file;
+int numberOfElements;
 
-DynamicArrayMenu::DynamicArrayMenu()
+DynamicArrayMenu::DynamicArrayMenu(int option)
 {
+
+        initOption = option;
+
+
         cout<<"Poczatkowy limit elementow w dynamicznej tablicy?"<<endl;
         int initialCap;
         cin>>initialCap;
 
-
+        if (initOption != 3)
+        {
         cout<<"Ile elementow w dynamicznej tablicy?"<<endl;
-        int numberOfElements;
         cin>>numberOfElements;
+        }
+        else
+        {
+            numberOfElements = fileSize;
+        }
+        cout<<"Number of elements = "<<numberOfElements<<endl;
 
-        DynamicArrayImplementation dynamicArray(initialCap, numberOfElements);
+        DynamicArrayImplementation dynamicArray(initialCap);
+        cout<<"Po konstruktorze"<<endl;
+        cout<<"Init option = "<<initOption<<endl;
+        cout<<"Number of elements = "<<numberOfElements<<endl;
 
-        if (numberOfElements > 0)
+        if (numberOfElements > 0 && initOption == 1)
         {
             cout<<"Wpisz wartosci"<<endl;
             for(int i=0; i<numberOfElements; i++)
             {
-                cin>>dynamicArray.dArray[i];
+                cout<<"Kurwa"<<endl;
+                int val;
+                cin>>val;
+                dynamicArray.addToDyArr(i, val);
             }
         }
+        cout<<"Number of elements"<<endl;
 
         arrayWork = 0;
         while(arrayWork == 0)
@@ -147,4 +167,38 @@ DynamicArrayMenu::DynamicArrayMenu()
 DynamicArrayMenu::~DynamicArrayMenu()
 {
     cout<<"elo array menu"<<endl;
+}
+
+void DynamicArrayMenu::getFileInfo()
+{
+    file.open("Values.txt", ios::in);
+    int val;
+
+    if(file.is_open())
+    {
+    file >> fileSize;
+    if(file.fail())  cout << "File error - READ SIZE" << endl;
+    else
+    {
+    fileArray = new int [fileSize];
+    int fileArray[fileSize];
+
+    for(int i = 0; i < fileSize; i++)
+    {
+        file >> val;
+
+        if(file.fail())
+        {
+            cout << "File error - READ DATA" << endl;
+            break;
+        }
+        else
+        {
+            fileArray[i] = val;
+        }
+    }
+    }
+    file.close();
+    }
+    else    cout << "File error - OPEN" << endl;
 }

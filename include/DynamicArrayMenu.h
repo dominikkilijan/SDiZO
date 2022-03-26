@@ -1,17 +1,26 @@
 #ifndef DYNAMICARRAYMENU_H
 #define DYNAMICARRAYMENU_H
 
+#include <fstream>
+
 
 class DynamicArrayMenu
 {
     public:
-        DynamicArrayMenu();
+        DynamicArrayMenu(int);
         virtual ~DynamicArrayMenu();
 
         int arraychoice;
         int arrayWork;
         int initialCap;
         int numberOfElements;
+        int initOption;
+
+        int *fileArray;
+        int fileSize;
+        //fstream file;
+
+        void getFileInfo();
 
     protected:
 
