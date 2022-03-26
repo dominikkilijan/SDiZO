@@ -64,35 +64,7 @@ Menu::Menu()
         {
         case 1:
             {
-                switch (initChoice)
-                {
-                case 1:
-                    {
-                    cout<<"No to se wpisuj"<<endl;
-
-                    DynamicArrayMenu dynamicArrayMenu(initChoice);
-
-                    }
-                    break;
-                case 2:
-                    {
-                    cout<<"Wygenerowanie liczb"<<endl;
-                    }
-                    break;
-                case 3:
-                    {
-                    cout<<"Wczytanie wartosci"<<endl;
-                    //getFileInfo();
-                    cout<<"Poczatkowy limit elementow w dynamicznej tablicy?"<<endl;
-                    int initialCap;
-                    cin>>initialCap;
-
-                    DynamicArrayMenu dynamicArrayMenu(initChoice);
-                    }
-                    break;
-                }
-
-            //DynamicArrayMenu dynamicArrayMenu;
+            DynamicArrayMenu dynamicArrayMenu(initChoice);
             delete this;
             }
             break;

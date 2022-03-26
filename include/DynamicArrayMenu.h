@@ -18,7 +18,7 @@ class DynamicArrayMenu
 
         int *fileArray;
         int fileSize;
-        //fstream file;
+
 
         void getFileInfo();
 

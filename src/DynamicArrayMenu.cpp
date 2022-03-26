@@ -3,6 +3,8 @@
 #include "Menu.h"
 #include "DynamicArrayImplementation.h"
 #include <fstream>
+#include <cstdlib>
+#include <time.h>
 
 using namespace std;
 
@@ -15,7 +17,6 @@ DynamicArrayMenu::DynamicArrayMenu(int option)
 
         initOption = option;
 
-
         cout<<"Poczatkowy limit elementow w dynamicznej tablicy?"<<endl;
         int initialCap;
         cin>>initialCap;
@@ -27,27 +28,45 @@ DynamicArrayMenu::DynamicArrayMenu(int option)
         }
         else
         {
+            getFileInfo();
             numberOfElements = fileSize;
         }
-        cout<<"Number of elements = "<<numberOfElements<<endl;
 
         DynamicArrayImplementation dynamicArray(initialCap);
-        cout<<"Po konstruktorze"<<endl;
-        cout<<"Init option = "<<initOption<<endl;
-        cout<<"Number of elements = "<<numberOfElements<<endl;
 
         if (numberOfElements > 0 && initOption == 1)
         {
             cout<<"Wpisz wartosci"<<endl;
             for(int i=0; i<numberOfElements; i++)
             {
-                cout<<"Kurwa"<<endl;
                 int val;
                 cin>>val;
                 dynamicArray.addToDyArr(i, val);
             }
         }
-        cout<<"Number of elements"<<endl;
+
+        if (numberOfElements > 0 && initOption == 2)
+        {
+            cout<<"Liczby losowe"<<endl;
+            srand(time(NULL));
+
+            for (int i = 0; i < numberOfElements; i++)
+            {
+            dynamicArray.addToDyArr(i, rand()%100);
+            }
+        }
+        if (numberOfElements > 0 && initOption == 3)
+        {
+            cout<<"Wczytywanie z pliku"<<endl;
+            cout<<"NoE = "<<numberOfElements<<endl;
+            for (int i = 0; i< numberOfElements; i++)
+            {
+                dynamicArray.addToDyArr(i, fileArray[i]);
+            }
+        }
+
+
+
 
         arrayWork = 0;
         while(arrayWork == 0)
@@ -181,7 +200,7 @@ void DynamicArrayMenu::getFileInfo()
     else
     {
     fileArray = new int [fileSize];
-    int fileArray[fileSize];
+
 
     for(int i = 0; i < fileSize; i++)
     {
