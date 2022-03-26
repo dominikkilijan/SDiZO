@@ -23,6 +23,9 @@ class ListImplementation
         Node* newNode;
 
         int listSize;
+        long long int frequency;
+        long long int start;
+        long long int elapsed;
 
 
         void addToList(int, int);
@@ -31,6 +34,7 @@ class ListImplementation
         void removeFromList(int);
         void clearList();
         void searchList(int);
+        long long int read_QPC();
 
 
     protected:

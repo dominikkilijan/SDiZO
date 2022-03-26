@@ -1,7 +1,11 @@
 #include <iostream>
 #include "ListImplementation.h"
+#include <iomanip>
+#include <windows.h>
 
 using namespace std;
+
+
 
 
 ListImplementation::ListImplementation()
@@ -16,8 +20,18 @@ ListImplementation::~ListImplementation()
     delete newNode;
 }
 
+long long int ListImplementation::read_QPC()
+{
+    LARGE_INTEGER count;
+
+    QueryPerformanceCounter(&count);
+    return ((long long int)count.QuadPart);
+}
+
 void ListImplementation::removeFromList(int index)
 {
+    start = read_QPC();
+
     if (index < 0 || index > listSize-1 || listSize == 0) cout<<"Nie mozna usunac elementu. Nieprawidlowy numer indeksu"<<endl;
 
     else if (listSize == 1) // usuwanie ostatniego elementu
@@ -92,6 +106,15 @@ void ListImplementation::removeFromList(int index)
             listSize--;
             cout<<"Usunieto element"<<endl;
     }
+
+    elapsed = read_QPC() - start;
+
+    cout << "Time [s] = " << fixed << setprecision(3) << (float)elapsed /
+frequency << endl;
+ cout << "Time [ms] = " << setprecision(0) << (1000.0 * elapsed) /
+frequency << endl;
+ cout << "Time [us] = " << setprecision(0) << (1000000.0 * elapsed) /
+frequency << endl << endl;
 
 
    printList();
