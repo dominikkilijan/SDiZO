@@ -47,6 +47,7 @@ DynamicArrayMenu::DynamicArrayMenu()
                 cout<<"Podaj wartosc: ";
                 cin>>val;
                 dynamicArray.addToDyArr(0, val);
+                dynamicArray.printDyArray();
             }
 
             break;
@@ -57,6 +58,7 @@ DynamicArrayMenu::DynamicArrayMenu()
                 cout<<"Podaj wartosc: ";
                 cin>>val;
                 dynamicArray.addToDyArr(dynamicArray.arraySize, val);
+                dynamicArray.printDyArray();
             }
 
             break;
@@ -71,17 +73,24 @@ DynamicArrayMenu::DynamicArrayMenu()
                 cin>>val;
 
                 dynamicArray.addToDyArr(id, val);
+                dynamicArray.printDyArray();
             }
 
             break;
 
         case 4:
+            {
             dynamicArray.removeFromDyArray(0);
+            dynamicArray.printDyArray();
+            }
 
             break;
 
         case 5:
+            {
             dynamicArray.removeFromDyArray(dynamicArray.arraySize);
+            dynamicArray.printDyArray();
+            }
 
             break;
 
@@ -92,6 +101,7 @@ DynamicArrayMenu::DynamicArrayMenu()
                 cin>>id;
 
                 dynamicArray.removeFromDyArray(id);
+                dynamicArray.printDyArray();
             }
 
             break;
@@ -102,6 +112,7 @@ DynamicArrayMenu::DynamicArrayMenu()
                 cout<<"Podaj wartosc: ";
                 cin>>val;
                 dynamicArray.arraySearch(val);
+                dynamicArray.printDyArray();
             }
 
 

@@ -39,12 +39,14 @@ HeapMenu::HeapMenu()
             cout<<"Podaj wartosc dodawanego elementu: "<<endl;
             cin>>val;
             heap.addToHeap(val);
+            heap.printHeap1();
             }
             break;
 
         case 2:
             {
             heap.removeHeapRoot();
+            heap.printHeap1();
             }
 
             break;
@@ -55,6 +57,7 @@ HeapMenu::HeapMenu()
             cout<<"Podaj wartosc szukanego elementu: "<<endl;
             cin>>val;
             heap.heapSearch(val);
+            heap.printHeap1();
             }
 
             break;

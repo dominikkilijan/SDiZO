@@ -39,6 +39,7 @@ ListMenu::ListMenu()
                 cout<<"Podaj wartosc: ";
                 cin>>val;
                 linkedList.addToList(0, val); //index = 0
+                linkedList.printList();
             }
 
             break;
@@ -49,6 +50,7 @@ ListMenu::ListMenu()
                 cout<<"Podaj wartosc: ";
                 cin>>val;
                 linkedList.addToList(linkedList.listSize, val); // index = listSize
+                linkedList.printList();
             }
 
 
@@ -63,17 +65,24 @@ ListMenu::ListMenu()
                 cout<<"Podaj wartosc: ";
                 cin>>val;
                 linkedList.addToList(id, val);
+                linkedList.printList();
             }
 
             break;
 
         case 4:
+            {
             linkedList.removeFromList(0);
+            linkedList.printList();
+            }
 
             break;
 
         case 5:
+            {
             linkedList.removeFromList(linkedList.listSize-1);
+            linkedList.printList();
+            }
 
             break;
 
@@ -83,6 +92,7 @@ ListMenu::ListMenu()
                 cout<<"Podaj indeks: ";
                 cin>>id;
                 linkedList.removeFromList(id);
+                linkedList.printList();
             }
 
             break;
@@ -93,6 +103,7 @@ ListMenu::ListMenu()
                 cout<<"Podaj wartosc: ";
                 cin>>val;
                 linkedList.searchList(val);
+                linkedList.printList();
             }
             break;
 
