@@ -23,6 +23,8 @@ class ListImplementation
         Node* newNode;
 
         int listSize;
+        int maxPrintSize;
+
         long long int frequency;
         long long int start;
         long long int elapsed;

@@ -100,15 +100,26 @@ void HeapImplenetation::heapify(int i)
 }
 
 // wyswietlanie elementow kopca po tyle elementow ile byloby rysowane na kartce. Nie sa zachowane odleglosci i nie ma linii miedzy rodzicem i dziecmi
+// wyswietlanie wszystkich lub max 15 kolejnych wartosci
 void HeapImplenetation::printHeap1()
 {
     if (heapSize<=0)   cout<<"Nie ma elementow do wyswietlenia"<<endl;
+    else
+    {
+        maxPrintSize = 15; // ile elementow mozna maksymalnie wyswietlic
+        if (heapSize <= 15) // jesli liczba elementow jest mniejsza niz 15 to wyswietl wszyskie wartosci
+        {                   // w przeciwnym wypadku wyswietl pierwsze 15 wartosci
+            maxPrintSize = heapSize;
+        }
 
     int bin=0;
     int elementsInLine=0;
-    for(int i=0;i<heapSize;i++)
+    string spaces[8] = {"       ", "", "   ", "    ", " ", "  ", "", " "};
+    string *beginSpaces= &spaces[0];
+    string *endSpaces= &spaces[1];
+    for(int i=0;i<maxPrintSize;i++)
     {
-        cout<<length[i]<<"  ";
+        cout<<*beginSpaces<<length[i]<<*endSpaces;
         elementsInLine++;
 
 
@@ -117,8 +128,12 @@ void HeapImplenetation::printHeap1()
             cout<<endl;
             bin++;
             elementsInLine=0; // po kazdej potedze 2 licznik jest zerowany
+            beginSpaces +=2;
+            endSpaces +=2;
+
         }
 
+    }
     }
 }
 

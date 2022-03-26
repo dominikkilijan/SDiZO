@@ -217,20 +217,25 @@ void ListImplementation::addToList(int index, int value)
     cout<<"listSize: "<<listSize<<endl;
 }
 
-
+// wyswietlanie wszystkich lub max 15 kolejnych wartosci
 void ListImplementation::printList()
 {
     if (listSize <= 0) cout<<"Brak elementow do wyswietlenia"<<endl;
     else
     {
-    Node* temp = head;
-    cout<<"Elementy w liscie:"<<endl;
-    while(temp != nullptr)
-    {
-        cout<<temp->data<<" ";
-        temp = temp->nextNode;
+        maxPrintSize = 15; // ile elementow mozna maksymalnie wyswietlic
+        if (listSize <= 15) // jesli liczba elementow jest mniejsza niz 15 to wyswietl wszyskie wartosci
+        {                   // w przeciwnym wypadku wyswietl pierwsze 15 wartosci
+            maxPrintSize = listSize;
+        }
+        Node* temp = head;
+        cout<<"Elementy w liscie:"<<endl;
+        for (int i = 0; i<maxPrintSize; i++)
+        {
+            cout<<temp->data<<" ";
+            temp = temp->nextNode;
 
-    }
+        }
     cout<<endl;
     }
 }
@@ -240,15 +245,21 @@ void ListImplementation::printListBackwards()
     if (listSize <= 0) cout<<"Brak elementow do wyswietlenia"<<endl;
     else
     {
-    Node* temp = tail; //pomocniczy wskaznik
-    cout<<"Elementy w liscie od tylu:"<<endl;
-    while(temp != nullptr)
-    {
+        maxPrintSize = 15; // ile elementow mozna maksymalnie wyswietlic
+        if (listSize <= 15) // jesli liczba elementow jest mniejsza niz 15 to wyswietl wszyskie wartosci
+        {                   // w przeciwnym wypadku wyswietl pierwsze 15 wartosci
+            maxPrintSize = listSize;
+        }
+
+        Node* temp = tail; //pomocniczy wskaznik
+        cout<<"Elementy w liscie od tylu:"<<endl;
+        for (int i = 0; i<maxPrintSize; i++)
+        {
         cout<<temp->data<<" ";
         temp = temp->prevNode;
 
-    }
-    cout<<endl;
+        }
+        cout<<endl;
     }
 }
 

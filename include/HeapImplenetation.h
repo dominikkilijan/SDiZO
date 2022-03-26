@@ -11,6 +11,7 @@ class HeapImplenetation
         int *length;
         int lengthSize;
         int heapSize;
+        int maxPrintSize;
 
         long long int frequency;
         long long int start;

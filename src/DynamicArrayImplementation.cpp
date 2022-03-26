@@ -122,23 +122,35 @@ void DynamicArrayImplementation::addToDyArr(int index, int value)
     cout << "Time [us] = " << setprecision(0) << (1000000.0 * elapsed) /frequency << endl << endl;
 }
 
+
+// wyswietlanie wszystkich lub max 15 kolejnych wartosci
 void DynamicArrayImplementation::printDyArray()
 {
-    for(int i=0; i<arraySize; i++)
+    if (arraySize <= 0) cout<<"Tablica jest pusta"<<endl;
+    else
+    {
+    maxPrintSize = 15; // ile elementow mozna maksymalnie wyswietlic
+        if (arraySize <= 15) // jesli liczba elementow jest mniejsza niz 15 to wyswietl wszyskie wartosci
+        {                   // w przeciwnym wypadku wyswietl pierwsze 15 wartosci
+            maxPrintSize = arraySize;
+        }
+    cout<<"Elementy w tablicy:"<<endl;
+    for(int i=0; i<maxPrintSize; i++)
     {
         cout<<(int)dArray[i]<<"  ";
     }
     cout<<endl;
+    }
 }
 
 
-
+// wyswietlanie wszystkich lub max 15 kolejnych wartosci od tylu
 void DynamicArrayImplementation::removeFromDyArray(int index)
 {
     QueryPerformanceFrequency((LARGE_INTEGER *)&frequency);
     start = read_QPC();  // poczatek pomiaru czasu
 
-    if (index > arraySize)  cout<<"Nie mozna usunac elementu z tego miejsca"<<endl;
+    if (index > arraySize || index < 0 || arraySize <= 0)  cout<<"Nie mozna usunac elementu z tego miejsca"<<endl;
     else
     {
 

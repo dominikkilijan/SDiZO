@@ -12,6 +12,7 @@ class DynamicArrayImplementation
         int *dArray;
         int arraySize;
         int arrayCapacity;
+        int maxPrintSize;
 
         long long int frequency;
         long long int start;
