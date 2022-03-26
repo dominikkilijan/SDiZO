@@ -30,6 +30,7 @@ long long int ListImplementation::read_QPC()
 
 void ListImplementation::removeFromList(int index)
 {
+    QueryPerformanceFrequency((LARGE_INTEGER *)&frequency);
     start = read_QPC();
 
     if (index < 0 || index > listSize-1 || listSize == 0) cout<<"Nie mozna usunac elementu. Nieprawidlowy numer indeksu"<<endl;
