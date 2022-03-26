@@ -14,11 +14,6 @@ class Menu
         int choice;
         int work;
 
-        int *fileArray;
-        int fileSize;
-        fstream file;
-
-        void getFileInfo();
 
 
 };

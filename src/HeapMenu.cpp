@@ -2,21 +2,68 @@
 #include "HeapMenu.h"
 #include "Menu.h"
 #include "HeapImplenetation.h"
+#include <fstream>
+#include <cstdlib>
+#include <time.h>
 
 using namespace std;
 
 int heapWork = 1;
+fstream heapFile;
 
 
-HeapMenu::HeapMenu()
+HeapMenu::HeapMenu(int option)
 {
         heapWork = 0;
+        initOption = option;
+
+
+        if (initOption != 3)
+        {
         cout<<"Ile elementow w kopcu?"<<endl;
         cin>>numberOfElements;
+        }
+        else
+        {
+            getFileInfo();
+            numberOfElements = fileSize;
+        }
+
 
         HeapImplenetation heap(numberOfElements);
 
-        while(heapWork ==0)
+        if (numberOfElements > 0 && initOption == 1)
+        {
+            cout<<"Wpisz wartosci"<<endl;
+            for(int i=0; i<numberOfElements; i++)
+            {
+                int val;
+                cin>>val;
+                heap.addToHeap(val);
+            }
+        }
+
+        if (numberOfElements > 0 && initOption == 2)
+        {
+            cout<<"Liczby losowe"<<endl;
+            srand(time(NULL));
+
+            for (int i = 0; i < numberOfElements; i++)
+            {
+            heap.addToHeap(rand()%100);
+            }
+        }
+        if (numberOfElements > 0 && initOption == 3)
+        {
+            cout<<"Wczytywanie z pliku"<<endl;
+            cout<<"NoE = "<<numberOfElements<<endl;
+            for (int i = 0; i< numberOfElements; i++)
+            {
+                heap.addToHeap(fileArray[i]);
+            }
+        }
+
+        while(heapWork==0)
         {
         int heapChoice=0;
         cout << endl<<"MENU GLOWNE KOPCA:"<<endl;
@@ -81,6 +128,40 @@ HeapMenu::HeapMenu()
 HeapMenu::~HeapMenu()
 {
 
+}
+
+void HeapMenu::getFileInfo()
+{
+    heapFile.open("Values.txt", ios::in);
+    int val;
+
+    if(heapFile.is_open())
+    {
+    heapFile >> fileSize;
+    if(heapFile.fail())  cout << "File error - READ SIZE" << endl;
+    else
+    {
+    fileArray = new int [fileSize];
+
+
+    for(int i = 0; i < fileSize; i++)
+    {
+        heapFile >> val;
+
+        if(heapFile.fail())
+        {
+            cout << "File error - READ DATA" << endl;
+            break;
+        }
+        else
+        {
+            fileArray[i] = val;
+        }
+    }
+    }
+    heapFile.close();
+    }
+    else    cout << "File error - OPEN" << endl;
 }
 
 

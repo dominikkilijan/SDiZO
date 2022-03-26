@@ -16,12 +16,7 @@ HeapImplenetation::HeapImplenetation(int heapS)
 {
     lengthSize=20;
     length = new int [lengthSize];
-    heapSize = heapS;
-    cout<<"Wprowadz elementy"<<endl;
-    for(int i=0; i<heapSize; i++)
-    {
-        cin>>length[i];
-    }
+    heapSize = 0;
     buildHeap();
 
 }

@@ -78,7 +78,7 @@ Menu::Menu()
 
         case 3:
             {
-            HeapMenu heapMenu;
+            HeapMenu heapMenu(initChoice);
             delete this;
             }
             break;
