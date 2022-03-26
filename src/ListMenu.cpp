@@ -2,16 +2,67 @@
 #include "ListMenu.h"
 #include "Menu.h"
 #include "ListImplementation.h"
+#include <fstream>
+#include <cstdlib>
+#include <time.h>
 
 using namespace std;
 
-ListMenu::ListMenu()
-{
+fstream listFile;
 
+ListMenu::ListMenu(int option)
+{
+        listWork = 0;
+        initOption = option;
+
+
+        if (initOption != 3)
+        {
+        cout<<"Ile elementow w liscie?"<<endl;
+        cin>>numberOfElements;
+        }
+        else
+        {
+            getFileInfo();
+            numberOfElements = fileSize;
+        }
 
         ListImplementation linkedList;
 
-        listWork = 0;
+        if (numberOfElements > 0 && initOption == 1)
+        {
+            cout<<"Wpisz wartosci"<<endl;
+            for(int i=0; i<numberOfElements; i++)
+            {
+                int val;
+                cin>>val;
+
+                linkedList.addToList(i, val);
+            }
+        }
+
+        if (numberOfElements > 0 && initOption == 2)
+        {
+            cout<<"Liczby losowe"<<endl;
+            srand(time(NULL));
+
+            for (int i = 0; i < numberOfElements; i++)
+            {
+
+            linkedList.addToList(i, rand()%100);
+            }
+        }
+        if (numberOfElements > 0 && initOption == 3)
+        {
+            cout<<"Wczytywanie z pliku"<<endl;
+            cout<<"NoE = "<<numberOfElements<<endl;
+            for (int i = 0; i< numberOfElements; i++)
+            {
+                linkedList.addToList(i, fileArray[i]);
+            }
+        }
+
+
         while(listWork == 0)
         {
         int listChoice=0;
@@ -128,4 +179,38 @@ ListMenu::ListMenu()
 ListMenu::~ListMenu()
 {
     cout<<"elo list menu"<<endl;
+}
+
+void ListMenu::getFileInfo()
+{
+    listFile.open("Values.txt", ios::in);
+    int val;
+
+    if(listFile.is_open())
+    {
+    listFile >> fileSize;
+    if(listFile.fail())  cout << "File error - READ SIZE" << endl;
+    else
+    {
+    fileArray = new int [fileSize];
+
+
+    for(int i = 0; i < fileSize; i++)
+    {
+        listFile >> val;
+
+        if(listFile.fail())
+        {
+            cout << "File error - READ DATA" << endl;
+            break;
+        }
+        else
+        {
+            fileArray[i] = val;
+        }
+    }
+    }
+    listFile.close();
+    }
+    else    cout << "File error - OPEN" << endl;
 }

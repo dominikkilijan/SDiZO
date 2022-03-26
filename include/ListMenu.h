@@ -1,16 +1,25 @@
 #ifndef LISTMENU_H
 #define LISTMENU_H
 
+#include <fstream>
 
 class ListMenu
 {
     public:
-        ListMenu();
+        ListMenu(int);
         virtual ~ListMenu();
 
         int listChoice;
         int listWork;
         int initChoice;
+        int initOption;
+        int numberOfElements;
+
+        int *fileArray;
+        int fileSize;
+
+
+        void getFileInfo();
 };
 
 #endif // LISTMENU_H

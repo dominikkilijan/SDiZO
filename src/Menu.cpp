@@ -71,7 +71,7 @@ Menu::Menu()
 
         case 2:
             {
-            ListMenu listMenu;
+            ListMenu listMenu(initChoice);
             delete this;
             }
             break;
