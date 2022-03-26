@@ -10,6 +10,7 @@ class ListMenu
 
         int listChoice;
         int listWork;
+        int initChoice;
 };
 
 #endif // LISTMENU_H

@@ -13,11 +13,21 @@ DynamicArrayMenu::DynamicArrayMenu()
         int initialCap;
         cin>>initialCap;
 
+
         cout<<"Ile elementow w dynamicznej tablicy?"<<endl;
         int numberOfElements;
         cin>>numberOfElements;
 
         DynamicArrayImplementation dynamicArray(initialCap, numberOfElements);
+
+        if (numberOfElements > 0)
+        {
+            cout<<"Wpisz wartosci"<<endl;
+            for(int i=0; i<numberOfElements; i++)
+            {
+                cin>>dynamicArray.dArray[i];
+            }
+        }
 
         arrayWork = 0;
         while(arrayWork == 0)

@@ -16,11 +16,7 @@ DynamicArrayImplementation::DynamicArrayImplementation(int cap, int initSize)
     arrayCapacity = cap;
     arraySize = initSize;
     dArray = new int[arrayCapacity];
-    cout<<"Wpisz wartosci"<<endl;
-    for(int i=0; i<arraySize; i++)
-    {
-        cin>>dArray[i];
-    }
+
 
 }
 

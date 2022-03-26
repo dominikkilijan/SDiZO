@@ -8,7 +8,7 @@ class DynamicArrayImplementation
         DynamicArrayImplementation(int, int);
         virtual ~DynamicArrayImplementation();
 
-        int basicArray[8];
+        //int basicArray[8];
         int *dArray;
         int arraySize;
         int arrayCapacity;
