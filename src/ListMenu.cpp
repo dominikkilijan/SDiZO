@@ -73,7 +73,7 @@ ListMenu::ListMenu()
             break;
 
         case 5:
-            linkedList.removeFromList(linkedList.listSize);
+            linkedList.removeFromList(linkedList.listSize-1);
 
             break;
 

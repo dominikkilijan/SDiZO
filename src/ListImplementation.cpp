@@ -52,7 +52,7 @@ void ListImplementation::removeFromList(int index)
         listSize--;
         cout<<"Usunieto element"<<endl;
     }
-    else if (index == listSize) //usuwanie elementu z konca
+    else if (index == listSize-1) //usuwanie elementu z konca
     {
         newNode = tail->prevNode;
         newNode->nextNode = nullptr;
