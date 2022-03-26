@@ -12,6 +12,10 @@ class HeapImplenetation
         int lengthSize;
         int heapSize;
 
+        long long int frequency;
+        long long int start;
+        long long int elapsed;
+
 
         int leftChild(int);
         int rightChild(int);
@@ -23,6 +27,7 @@ class HeapImplenetation
         void removeHeapRoot();
         void buildHeap();
 
+        long long int read_QPC();
 
     protected:
 

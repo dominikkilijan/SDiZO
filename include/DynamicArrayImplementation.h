@@ -13,12 +13,17 @@ class DynamicArrayImplementation
         int arraySize;
         int arrayCapacity;
 
+        long long int frequency;
+        long long int start;
+        long long int elapsed;
+
         void checkIfResize();
         void addToDyArr(int, int);
         void printDyArray();
         void checkIfDownsize();
         void removeFromDyArray(int);
         void arraySearch(int);
+        long long int read_QPC();
 
 
     protected:

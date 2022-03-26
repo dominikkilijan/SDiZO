@@ -1,5 +1,7 @@
 #include <iostream>
 #include "DynamicArrayImplementation.h"
+#include <iomanip>
+#include <windows.h>
 
 using namespace std;
 
@@ -26,6 +28,14 @@ DynamicArrayImplementation::~DynamicArrayImplementation()
 {
     cout<<"elo dynamiczna tablica!"<<endl;
     delete[] dArray;
+}
+
+long long int DynamicArrayImplementation::read_QPC()
+{
+    LARGE_INTEGER count;
+
+    QueryPerformanceCounter(&count);
+    return ((long long int)count.QuadPart);
 }
 
 // jesli koncza sie miejsca w tablicy to rozmiar jest zwiekszany dwukrotnie
@@ -76,6 +86,9 @@ void DynamicArrayImplementation::checkIfDownsize()
 
 void DynamicArrayImplementation::addToDyArr(int index, int value)
 {
+    QueryPerformanceFrequency((LARGE_INTEGER *)&frequency);
+    start = read_QPC();  // poczatek pomiaru czasu
+
     if (index > arraySize)  cout<<"Nie mozna dodac elementu w to miejsce"<<endl;
 
     else
@@ -101,8 +114,12 @@ void DynamicArrayImplementation::addToDyArr(int index, int value)
     delete[] dArray;
     dArray = newArr;
 
-    printDyArray();
     }
+    elapsed = read_QPC() - start; // koniec pomiaru czasu
+
+    cout << "Time [s] = " << fixed << setprecision(3) << (float)elapsed /frequency << endl;
+    cout << "Time [ms] = " << setprecision(0) << (1000.0 * elapsed) /frequency << endl;
+    cout << "Time [us] = " << setprecision(0) << (1000000.0 * elapsed) /frequency << endl << endl;
 }
 
 void DynamicArrayImplementation::printDyArray()
@@ -118,6 +135,9 @@ void DynamicArrayImplementation::printDyArray()
 
 void DynamicArrayImplementation::removeFromDyArray(int index)
 {
+    QueryPerformanceFrequency((LARGE_INTEGER *)&frequency);
+    start = read_QPC();  // poczatek pomiaru czasu
+
     if (index > arraySize)  cout<<"Nie mozna usunac elementu z tego miejsca"<<endl;
     else
     {
@@ -129,8 +149,6 @@ void DynamicArrayImplementation::removeFromDyArray(int index)
     {
         newArr[i]=dArray[i];
     }
-
-    printDyArray();
 
     arraySize--;
 
@@ -144,20 +162,38 @@ void DynamicArrayImplementation::removeFromDyArray(int index)
 
     checkIfDownsize(); // sprawdzenie czy nie zmniejszyc tablicy
 
-    printDyArray();
     }
+    elapsed = read_QPC() - start; // koniec pomiaru czasu
+
+    cout << "Time [s] = " << fixed << setprecision(3) << (float)elapsed /frequency << endl;
+    cout << "Time [ms] = " << setprecision(0) << (1000.0 * elapsed) /frequency << endl;
+    cout << "Time [us] = " << setprecision(0) << (1000000.0 * elapsed) /frequency << endl << endl;
 }
 
 // szukanie indeksu na podstawie podanej wartosci
 void DynamicArrayImplementation::arraySearch(int value)
 {
+    QueryPerformanceFrequency((LARGE_INTEGER *)&frequency);
+    start = read_QPC();  // poczatek pomiaru czasu
+
     for (int i=0; i<arraySize; i++)
     {
         if(dArray[i]==value)
         {
             cout<<"Znaleziono wartosc na indeksie: "<<(i)<<endl;
+            elapsed = read_QPC() - start; // koniec pomiaru czasu po znalezieniu wartosci
+
+            cout << "Time [s] = " << fixed << setprecision(3) << (float)elapsed /frequency << endl;
+            cout << "Time [ms] = " << setprecision(0) << (1000.0 * elapsed) /frequency << endl;
+            cout << "Time [us] = " << setprecision(0) << (1000000.0 * elapsed) /frequency << endl << endl;
             return;
         }
     }
     cout<<"Nie ma takiej wartosci w tablicy"<<endl;
+
+    elapsed = read_QPC() - start; // koniec pomiaru czasu jesli nie znaleziono wartosci
+
+    cout << "Time [s] = " << fixed << setprecision(3) << (float)elapsed /frequency << endl;
+    cout << "Time [ms] = " << setprecision(0) << (1000.0 * elapsed) /frequency << endl;
+    cout << "Time [us] = " << setprecision(0) << (1000000.0 * elapsed) /frequency << endl << endl;
 }

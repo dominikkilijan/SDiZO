@@ -31,7 +31,7 @@ long long int ListImplementation::read_QPC()
 void ListImplementation::removeFromList(int index)
 {
     QueryPerformanceFrequency((LARGE_INTEGER *)&frequency);
-    start = read_QPC();
+    start = read_QPC();  // poczatek pomiaru czasu
 
     if (index < 0 || index > listSize-1 || listSize == 0) cout<<"Nie mozna usunac elementu. Nieprawidlowy numer indeksu"<<endl;
 
@@ -108,14 +108,13 @@ void ListImplementation::removeFromList(int index)
             cout<<"Usunieto element"<<endl;
     }
 
-    elapsed = read_QPC() - start;
+    elapsed = read_QPC() - start; // koniec pomiaru czasu
 
     cout << "Time [s] = " << fixed << setprecision(3) << (float)elapsed /frequency << endl;
     cout << "Time [ms] = " << setprecision(0) << (1000.0 * elapsed) /frequency << endl;
     cout << "Time [us] = " << setprecision(0) << (1000000.0 * elapsed) /frequency << endl << endl;
 
 
-   printList();
    cout<<"listSize: "<<listSize<<endl;
 }
 
@@ -123,7 +122,7 @@ void ListImplementation::addToList(int index, int value)
 {
 
     QueryPerformanceFrequency((LARGE_INTEGER *)&frequency);
-    start = read_QPC();
+    start = read_QPC();  // poczatek pomiaru czasu
 
     if(listSize == 0) // dodawanie pierwszego elementu
     {
@@ -201,9 +200,6 @@ void ListImplementation::addToList(int index, int value)
 
             temp = nullptr;
             delete temp;
-
-            printList();
-
         }
 
 
@@ -212,14 +208,13 @@ void ListImplementation::addToList(int index, int value)
 
     listSize++;
 
-    elapsed = read_QPC() - start;
+    elapsed = read_QPC() - start;  // koniec pomiaru czasu
 
     cout << "Time [s] = " << fixed << setprecision(3) << (float)elapsed /frequency << endl;
     cout << "Time [ms] = " << setprecision(0) << (1000.0 * elapsed) /frequency << endl;
     cout << "Time [us] = " << setprecision(0) << (1000000.0 * elapsed) /frequency << endl << endl;
 
     cout<<"listSize: "<<listSize<<endl;
-    printList();
 }
 
 
@@ -269,7 +264,7 @@ void ListImplementation::clearList()
 void ListImplementation::searchList(int value)
 {
     QueryPerformanceFrequency((LARGE_INTEGER *)&frequency);
-    start = read_QPC();
+    start = read_QPC(); // poczatek pomiaru czasu
 
     newNode = head;
     for (int i=0; i<listSize; i++)
@@ -289,7 +284,7 @@ void ListImplementation::searchList(int value)
     }
     cout<<"Nie ma takiej wartosci w tablicy"<<endl;
 
-    elapsed = read_QPC() - start;
+    elapsed = read_QPC() - start; // koniec pomiaru czasu
 
     cout << "Time [s] = " << fixed << setprecision(3) << (float)elapsed /frequency << endl;
     cout << "Time [ms] = " << setprecision(0) << (1000.0 * elapsed) /frequency << endl;

@@ -2,7 +2,8 @@
 #include<math.h>
 #include<iostream>
 #include "HeapMenu.h"
-#include<windows.h>
+#include <iomanip>
+#include <windows.h>
 
 using namespace std;
 
@@ -30,6 +31,14 @@ HeapImplenetation::~HeapImplenetation()
     delete [] length;
 }
 
+long long int HeapImplenetation::read_QPC()
+{
+    LARGE_INTEGER count;
+
+    QueryPerformanceCounter(&count);
+    return ((long long int)count.QuadPart);
+}
+
 // zwracanie indeksow od 0
 int HeapImplenetation::leftChild(int parentIndex) // indeks lewego dziecka
 {
@@ -47,16 +56,29 @@ int HeapImplenetation::parent(int childIndex) // indeks rodzica
 //szukanie elementu na podstawie wartosci. Wyswietla indeks
 void HeapImplenetation::heapSearch(int value)
 {
+    QueryPerformanceFrequency((LARGE_INTEGER *)&frequency);
+    start = read_QPC();  // poczatek pomiaru czasu
 
     for (int i=0; i<heapSize; i++)
     {
         if(length[i]==value)
         {
             cout<<"Znaleziono wartosc na indeksie: "<<(i+1)<<endl;
+            elapsed = read_QPC() - start; // koniec pomiaru czasu jesli znaleziono element
+
+            cout << "Time [s] = " << fixed << setprecision(3) << (float)elapsed /frequency << endl;
+            cout << "Time [ms] = " << setprecision(0) << (1000.0 * elapsed) /frequency << endl;
+            cout << "Time [us] = " << setprecision(0) << (1000000.0 * elapsed) /frequency << endl << endl;
             return;
         }
     }
     cout<<"Nie ma takiej wartosci w kopcu"<<endl;
+
+    elapsed = read_QPC() - start; // koniec pomiaru czasu jesli nie znaleziono szukanej wartosci
+
+    cout << "Time [s] = " << fixed << setprecision(3) << (float)elapsed /frequency << endl;
+    cout << "Time [ms] = " << setprecision(0) << (1000.0 * elapsed) /frequency << endl;
+    cout << "Time [us] = " << setprecision(0) << (1000000.0 * elapsed) /frequency << endl << endl;
 }
 
 
@@ -103,6 +125,9 @@ void HeapImplenetation::printHeap1()
 // dodawanie elementu na ostatnia pozycje w kopcu i ewentualna zamiana miejscami
 void HeapImplenetation::addToHeap(int value)
 {
+    QueryPerformanceFrequency((LARGE_INTEGER *)&frequency);
+    start = read_QPC();  // poczatek pomiaru czasu
+
     if(heapSize == lengthSize) cout<<"Kopiec jest pelny!"<<endl;
 
     else
@@ -112,18 +137,21 @@ void HeapImplenetation::addToHeap(int value)
     int i = heapSize-1; // indeks ostatniego (nowego) elementu
     length[i] = value;
 
-    while(i!=0 && length[parent(i)]<length[i]) // jesli nowo dodany element jest wiekszy od rodzica to zamien je miejscami. Sprawdzaj az do korzenia
-    {
-        swap(length[parent(i)],length[i]);
-        i=parent(i);
+    buildHeap();
     }
-    printHeap1();
-    }
+    elapsed = read_QPC() - start; // koniec pomiaru czasu
+
+    cout << "Time [s] = " << fixed << setprecision(3) << (float)elapsed /frequency << endl;
+    cout << "Time [ms] = " << setprecision(0) << (1000.0 * elapsed) /frequency << endl;
+    cout << "Time [us] = " << setprecision(0) << (1000000.0 * elapsed) /frequency << endl << endl;
 }
 
 // usuwanie korzenia kopca = najwszyzszej wartosci.
 void HeapImplenetation::removeHeapRoot()
 {
+    QueryPerformanceFrequency((LARGE_INTEGER *)&frequency);
+    start = read_QPC(); // poczatek pomiaru czasu
+
     if (heapSize <= 0)
         cout<<"Kopiec jest pusty!"<<endl;
     else if (heapSize == 1)
@@ -140,9 +168,14 @@ void HeapImplenetation::removeHeapRoot()
        length[heapSize] = NULL;
        heapify(0);
     }
+    elapsed = read_QPC() - start; // koniec pomiaru czasu
+
+    cout << "Time [s] = " << fixed << setprecision(3) << (float)elapsed /frequency << endl;
+    cout << "Time [ms] = " << setprecision(0) << (1000.0 * elapsed) /frequency << endl;
+    cout << "Time [us] = " << setprecision(0) << (1000000.0 * elapsed) /frequency << endl << endl;
 }
 
-// ukladanie elementow zgodnie z zalozeniami kopca max. Metoda uzywana w konstruktorze
+// ukladanie elementow zgodnie z zalozeniami kopca max. Sprawdza wszystkie elementy kopca
 void HeapImplenetation::buildHeap()
 {
     for (int i=floor(heapSize/2); i>=1; i--) // floor(heapsize/2) zwraca rodzica (nie-lisc) z najwiekszym indeksem
