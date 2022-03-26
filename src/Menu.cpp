@@ -22,7 +22,7 @@ Menu::Menu()
         cout << "------------------------------------------"<<endl;
         cout << "Wybor: ";
         cin >> choice;
-        system("cls"); // clear console
+        system("cls"); // czyszczenie konsoli
 
         switch (choice)
         {
@@ -53,13 +53,12 @@ Menu::Menu()
 
             break;
         }
-        }
+    }
 }
 
 Menu::~Menu()
 {
     cout<<"elo menu"<<endl;
-    //system("cls"); // clear console
 }
 
 

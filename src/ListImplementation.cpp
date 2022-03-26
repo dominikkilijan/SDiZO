@@ -27,12 +27,11 @@ void ListImplementation::removeFromList(int index)
         cout<<"Usunieto ostatni element. Lista jest pusta"<<endl;
     }
 
-    else if (index == 0) //usuwanie pierwszego elementu
+    else if (index == 0) //usuwanie elementu z poczatku
     {
 
         newNode = head->nextNode;
         newNode->prevNode = nullptr;
-        //temp.nextNode = nullptr;
         delete head;
         head = newNode;
 
@@ -52,7 +51,7 @@ void ListImplementation::removeFromList(int index)
     }
     else if (index > 0 && index < listSize) // usuwanie ze srodka
     {
-        Node* temp = head; //pomocniczy wskaznik
+        Node* temp = head;
 
             for(int i=0; i<index; i++)
             {
@@ -81,7 +80,7 @@ void ListImplementation::addToList(int index, int value)
 {
 
 
-    if(listSize == 0) //dodawanie pierwszego elementu
+    if(listSize == 0) // dodawanie pierwszego elementu
     {
         cout<<"Dodawanie pierwszego elementu"<<endl;
         newNode = new Node;
@@ -92,7 +91,7 @@ void ListImplementation::addToList(int index, int value)
         tail = newNode;
 
     }
-    else if (listSize > 0)
+    else if (listSize > 0) //dodawanie kolejnych elementow
     {
         if (index < 0 || index > listSize) cout<<"Nie mozna dodac elementu. Nieprawidlowy numer indeksu"<<endl;
 
@@ -126,7 +125,7 @@ void ListImplementation::addToList(int index, int value)
             newNode = new Node; //dodawanie elementu do srodka listy
             newNode->data = value;
 
-            Node* temp = head; //pomocniczy wskaznik
+            Node* temp = head;
 
             for(int i=0; i<index; i++)
             {
@@ -150,16 +149,18 @@ void ListImplementation::addToList(int index, int value)
 
     }
     else cout<<"Wystapil blad przy dodawaniu elementu"<<endl;
+
     listSize++;
     cout<<"listSize: "<<listSize<<endl;
 }
+
 
 void ListImplementation::printList()
 {
     if (listSize <= 0) cout<<"Brak elementow do wyswietlenia"<<endl;
     else
     {
-    Node* temp = head; //pomocniczy wskaznik
+    Node* temp = head;
     cout<<"Elementy w liscie:"<<endl;
     while(temp != nullptr)
     {
@@ -196,6 +197,7 @@ void ListImplementation::clearList()
     }
 }
 
+//szukanie elementu na podstawie wartosci. Wyswietla indeks
 void ListImplementation::searchList(int value)
 {
     newNode = head;

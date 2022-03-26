@@ -37,7 +37,7 @@ DynamicArrayMenu::DynamicArrayMenu()
         cout << "------------------------------------------"<<endl;
         cout << "Wybor: ";
         cin >> arrayChoice;
-        system("cls"); // clear console
+        system("cls"); // czyszczenie konsoli
 
         switch (arrayChoice)
         {
@@ -126,5 +126,4 @@ DynamicArrayMenu::DynamicArrayMenu()
 DynamicArrayMenu::~DynamicArrayMenu()
 {
     cout<<"elo array menu"<<endl;
-    //system("cls"); // clear console
 }

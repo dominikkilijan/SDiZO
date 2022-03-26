@@ -29,7 +29,7 @@ ListMenu::ListMenu()
         cout << "------------------------------------------"<<endl;
         cout << "Wybor: ";
         cin >> listChoice;
-        system("cls"); // clear console
+        system("cls"); // czyszczenie konsoli
 
         switch (listChoice)
         {
@@ -38,7 +38,7 @@ ListMenu::ListMenu()
                 int val;
                 cout<<"Podaj wartosc: ";
                 cin>>val;
-                linkedList.addToList(0, val);
+                linkedList.addToList(0, val); //index = 0
             }
 
             break;
@@ -48,7 +48,7 @@ ListMenu::ListMenu()
                 int val;
                 cout<<"Podaj wartosc: ";
                 cin>>val;
-                linkedList.addToList(linkedList.listSize, val);
+                linkedList.addToList(linkedList.listSize, val); // index = listSize
             }
 
 
@@ -117,5 +117,4 @@ ListMenu::ListMenu()
 ListMenu::~ListMenu()
 {
     cout<<"elo list menu"<<endl;
-    //system("cls"); // clear console
 }

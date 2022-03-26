@@ -28,6 +28,7 @@ DynamicArrayImplementation::~DynamicArrayImplementation()
     delete[] dArray;
 }
 
+// jesli koncza sie miejsca w tablicy to rozmiar jest zwiekszany dwukrotnie
 void DynamicArrayImplementation::checkIfResize()
 {
     if (arraySize+1>=arrayCapacity)
@@ -42,16 +43,15 @@ void DynamicArrayImplementation::checkIfResize()
         for(int i=0; i<(arrayCapacity/2);i++)
         {
             newArray[i]=dArray[i];
-            cout<<newArray[i]<<"    "<<dArray[i]<<endl;
         }
         delete[] dArray;
         cout<<"Zwiekszono miejsce w tablicy"<<endl;
         dArray = newArray;
-        printDyArray();
-        //delete []newArray;
 
     }
 }
+
+// jesli w tablicy jest duzo wolnych miejsc to rozmiar jest zmniejszany dwukrotnie
 void DynamicArrayImplementation::checkIfDownsize()
 {
     if (arraySize<=arrayCapacity/4)
@@ -66,12 +66,10 @@ void DynamicArrayImplementation::checkIfDownsize()
         for(int i=0; i<(arrayCapacity/2);i++)
         {
             newArray[i]=dArray[i];
-            cout<<newArray[i]<<"    "<<dArray[i]<<endl;
         }
         delete[] dArray;
         cout<<"Zmniejszono miejsce w tablicy"<<endl;
         dArray = newArray;
-        printDyArray();
 
     }
 }
@@ -82,35 +80,27 @@ void DynamicArrayImplementation::addToDyArr(int index, int value)
 
     else
     {
-    checkIfResize();
-    cout<<"Dodawanie nowego elementu"<<endl;
-    printDyArray();
+    checkIfResize(); // sprawdzenie czy nie trzeba zrobic wiecej miejsca w tablicy
 
     int *newArr;
     newArr = new int[arrayCapacity];
 
-    for(int i=0; i<index; i++)
+    for(int i=0; i<index; i++) // przepisanie elementow przed docelowym indeksem
     {
         newArr[i]=dArray[i];
     }
-    cout<<"Przepisano wczesniejsze wartosci"<<endl;
-    printDyArray();
 
-    newArr[index]=value;
+    newArr[index]=value; // dodanie nowego elementu
     arraySize++;
 
-    cout<<"Dodano nowy element"<<endl;
-    printDyArray();
-
-    for(int j=index+1; j<arraySize; j++)
+    for(int j=index+1; j<arraySize; j++) // przepisanie pozostalych wartosci w tablicy
     {
         newArr[j]=dArray[j-1];
     }
-    cout<<"Skopiowano reszte tablicy"<<endl;
-    printDyArray();
+
     delete[] dArray;
     dArray = newArr;
-    cout<<"Wszystko gotowe"<<endl;
+
     printDyArray();
     }
 }
@@ -135,36 +125,30 @@ void DynamicArrayImplementation::removeFromDyArray(int index)
     int *newArr;
     newArr = new int[arrayCapacity];
 
-    for(int i=0; i<index; i++)
+    for(int i=0; i<index; i++) // przepisanie elementow przed docelowym indeksem
     {
         newArr[i]=dArray[i];
     }
-    cout<<"Przepisano wczesniejsze wartosci"<<endl;
+
     printDyArray();
 
     arraySize--;
-    cout<<"Pominieto usuwana wartosc"<<endl;
 
-    for(int j=index; j<arraySize; j++)
+    for(int j=index; j<arraySize; j++) // pominiecie wartosci z wybranego indeksu i skopiowanie reszty
     {
         newArr[j]=dArray[j+1];
     }
-    cout<<"Skopiowano reszte tablicy"<<endl;
-    printDyArray();
+
     delete[] dArray;
     dArray = newArr;
-    cout<<"Wszystko gotowe"<<endl;
-    printDyArray();
 
-    cout<<"Sprawdzanie czy nie zmniejszyc tablicy"<<endl;
-    checkIfDownsize();
-    cout<<"Sprawdzono"<<endl;
+    checkIfDownsize(); // sprawdzenie czy nie zmniejszyc tablicy
 
-    cout<<"Voila"<<endl;
     printDyArray();
     }
 }
 
+// szukanie indeksu na podstawie podanej wartosci
 void DynamicArrayImplementation::arraySearch(int value)
 {
     for (int i=0; i<arraySize; i++)

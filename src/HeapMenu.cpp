@@ -77,7 +77,7 @@ HeapMenu::HeapMenu()
 
 HeapMenu::~HeapMenu()
 {
-    //system("cls"); // clear console
+
 }
 
 

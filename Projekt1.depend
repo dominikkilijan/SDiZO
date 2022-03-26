@@ -1,11 +1,11 @@
 # depslib dependency file v1.0
-1648209564 source:d:\studia\pwr\sdizo\p\projekt1\src\dynamicarrayimplementation.cpp
+1648254773 source:d:\studia\pwr\sdizo\p\projekt1\src\dynamicarrayimplementation.cpp
 	<iostream>
 	"DynamicArrayImplementation.h"
 
 1648209588 d:\studia\pwr\sdizo\p\projekt1\include\dynamicarrayimplementation.h
 
-1648205336 source:d:\studia\pwr\sdizo\p\projekt1\src\heapimplenetation.cpp
+1648254529 source:d:\studia\pwr\sdizo\p\projekt1\src\heapimplenetation.cpp
 	"HeapImplenetation.h"
 	<math.h>
 	<iostream>
@@ -13,11 +13,11 @@
 
 1648129921 d:\studia\pwr\sdizo\p\projekt1\include\heapimplenetation.h
 
-1648242990 source:d:\studia\pwr\sdizo\p\projekt1\src\listimplementation.cpp
+1648252997 source:d:\studia\pwr\sdizo\p\projekt1\src\listimplementation.cpp
 	<iostream>
 	"ListImplementation.h"
 
-1648239841 d:\studia\pwr\sdizo\p\projekt1\include\listimplementation.h
+1648247493 d:\studia\pwr\sdizo\p\projekt1\include\listimplementation.h
 
 1648037909 source:d:\studia\pwr\sdizo\p\projekt1\main.cpp
 	<iostream>
@@ -26,7 +26,7 @@
 1648119625 d:\studia\pwr\sdizo\p\projekt1\include\menu.h
 	<iostream>
 
-1648210451 source:d:\studia\pwr\sdizo\p\projekt1\src\menu.cpp
+1648252641 source:d:\studia\pwr\sdizo\p\projekt1\src\menu.cpp
 	<iostream>
 	"Menu.h"
 	"HeapMenu.h"
@@ -38,7 +38,7 @@
 	"Menu.h"
 	"HeapImplenetation.h"
 
-1648210842 source:d:\studia\pwr\sdizo\p\projekt1\src\dynamicarraymenu.cpp
+1648254637 source:d:\studia\pwr\sdizo\p\projekt1\src\dynamicarraymenu.cpp
 	<iostream>
 	"DynamicArrayMenu.h"
 	"Menu.h"
@@ -46,7 +46,7 @@
 
 1648152353 d:\studia\pwr\sdizo\p\projekt1\include\dynamicarraymenu.h
 
-1648246132 source:d:\studia\pwr\sdizo\p\projekt1\src\listmenu.cpp
+1648252644 source:d:\studia\pwr\sdizo\p\projekt1\src\listmenu.cpp
 	<iostream>
 	"ListMenu.h"
 	"Menu.h"
@@ -54,7 +54,7 @@
 
 1648120661 d:\studia\pwr\sdizo\p\projekt1\include\listmenu.h
 
-1648204289 source:d:\studia\pwr\sdizo\p\projekt1\src\heapmenu.cpp
+1648253016 source:d:\studia\pwr\sdizo\p\projekt1\src\heapmenu.cpp
 	<iostream>
 	"HeapMenu.h"
 	"Menu.h"
