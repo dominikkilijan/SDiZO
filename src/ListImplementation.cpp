@@ -110,12 +110,9 @@ void ListImplementation::removeFromList(int index)
 
     elapsed = read_QPC() - start;
 
-    cout << "Time [s] = " << fixed << setprecision(3) << (float)elapsed /
-frequency << endl;
- cout << "Time [ms] = " << setprecision(0) << (1000.0 * elapsed) /
-frequency << endl;
- cout << "Time [us] = " << setprecision(0) << (1000000.0 * elapsed) /
-frequency << endl << endl;
+    cout << "Time [s] = " << fixed << setprecision(3) << (float)elapsed /frequency << endl;
+    cout << "Time [ms] = " << setprecision(0) << (1000.0 * elapsed) /frequency << endl;
+    cout << "Time [us] = " << setprecision(0) << (1000000.0 * elapsed) /frequency << endl << endl;
 
 
    printList();
@@ -125,6 +122,8 @@ frequency << endl << endl;
 void ListImplementation::addToList(int index, int value)
 {
 
+    QueryPerformanceFrequency((LARGE_INTEGER *)&frequency);
+    start = read_QPC();
 
     if(listSize == 0) // dodawanie pierwszego elementu
     {
@@ -212,7 +211,15 @@ void ListImplementation::addToList(int index, int value)
     else cout<<"Wystapil blad przy dodawaniu elementu"<<endl;
 
     listSize++;
+
+    elapsed = read_QPC() - start;
+
+    cout << "Time [s] = " << fixed << setprecision(3) << (float)elapsed /frequency << endl;
+    cout << "Time [ms] = " << setprecision(0) << (1000.0 * elapsed) /frequency << endl;
+    cout << "Time [us] = " << setprecision(0) << (1000000.0 * elapsed) /frequency << endl << endl;
+
     cout<<"listSize: "<<listSize<<endl;
+    printList();
 }
 
 
@@ -261,16 +268,32 @@ void ListImplementation::clearList()
 //szukanie elementu na podstawie wartosci. Wyswietla indeks
 void ListImplementation::searchList(int value)
 {
+    QueryPerformanceFrequency((LARGE_INTEGER *)&frequency);
+    start = read_QPC();
+
     newNode = head;
     for (int i=0; i<listSize; i++)
     {
         if(newNode->data==value)
         {
             cout<<"Znaleziono wartosc na indeksie: "<<(i)<<endl;
+
+            elapsed = read_QPC() - start;
+
+            cout << "Time [s] = " << fixed << setprecision(3) << (float)elapsed /frequency << endl;
+            cout << "Time [ms] = " << setprecision(0) << (1000.0 * elapsed) /frequency << endl;
+            cout << "Time [us] = " << setprecision(0) << (1000000.0 * elapsed) /frequency << endl << endl;
             return;
         }
         newNode = newNode->nextNode;
     }
     cout<<"Nie ma takiej wartosci w tablicy"<<endl;
+
+    elapsed = read_QPC() - start;
+
+    cout << "Time [s] = " << fixed << setprecision(3) << (float)elapsed /frequency << endl;
+    cout << "Time [ms] = " << setprecision(0) << (1000.0 * elapsed) /frequency << endl;
+    cout << "Time [us] = " << setprecision(0) << (1000000.0 * elapsed) /frequency << endl << endl;
+
 }
 
