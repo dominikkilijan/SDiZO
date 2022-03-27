@@ -17,7 +17,7 @@
 
 1648347629 d:\studia\pwr\sdizo\p\projekt1\include\heapimplenetation.h
 
-1648380189 source:d:\studia\pwr\sdizo\p\projekt1\src\listimplementation.cpp
+1648380290 source:d:\studia\pwr\sdizo\p\projekt1\src\listimplementation.cpp
 	<iostream>
 	"ListImplementation.h"
 	<iomanip>
@@ -40,7 +40,7 @@
 	"DynamicArrayMenu.h"
 	"ListMenu.h"
 
-1648379843 source:d:\studia\pwr\sdizo\p\projekt1\src\main.cpp
+1648380406 source:d:\studia\pwr\sdizo\p\projekt1\src\main.cpp
 	<iostream>
 	"Menu.h"
 
@@ -77,7 +77,7 @@
 	<cstdlib>
 	<time.h>
 
-1648379225 d:\studia\pwr\sdizo\p\projekt1\include\heapmenu.h
+1648381061 d:\studia\pwr\sdizo\p\projekt1\include\heapmenu.h
 	<HeapMenu.h>
 	<fstream>
 

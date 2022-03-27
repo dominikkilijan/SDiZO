@@ -21,6 +21,9 @@ HeapMenu::HeapMenu(int option)
 
         if (initOption != 3) // okreslenie liczby poczatkowych elementow
         {
+        cout<<"Maksymalna pojemnosc kopca?"<<endl;
+        cin>>heapCap;
+
         cout<<"Ile elementow w kopcu?"<<endl;
         cin>>numberOfHeapElements;
         }
@@ -31,7 +34,7 @@ HeapMenu::HeapMenu(int option)
         }
 
 
-        HeapImplenetation heap;
+        HeapImplenetation heap(heapCap);
 
         if (numberOfHeapElements > 0 && initOption == 1) // reczne wpisanie wartosci
         {

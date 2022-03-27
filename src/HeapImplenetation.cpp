@@ -12,9 +12,9 @@ int *length;
 int lengthSize;
 
 
-HeapImplenetation::HeapImplenetation()
+HeapImplenetation::HeapImplenetation(int heapCapacity)
 {
-    lengthSize=20;
+    lengthSize=heapCapacity;
     length = new int [lengthSize];
     heapSize = 0;
     buildHeap();

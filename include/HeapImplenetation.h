@@ -5,7 +5,7 @@
 class HeapImplenetation
 {
     public:
-        HeapImplenetation();
+        HeapImplenetation(int);
         virtual ~HeapImplenetation();
 
         int *length;
