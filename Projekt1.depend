@@ -7,7 +7,7 @@
 
 1648332473 d:\studia\pwr\sdizo\p\projekt1\include\dynamicarrayimplementation.h
 
-1648347629 source:d:\studia\pwr\sdizo\p\projekt1\src\heapimplenetation.cpp
+1648381061 source:d:\studia\pwr\sdizo\p\projekt1\src\heapimplenetation.cpp
 	"HeapImplenetation.h"
 	<math.h>
 	<iostream>
@@ -15,9 +15,9 @@
 	<iomanip>
 	<windows.h>
 
-1648347629 d:\studia\pwr\sdizo\p\projekt1\include\heapimplenetation.h
+1648381061 d:\studia\pwr\sdizo\p\projekt1\include\heapimplenetation.h
 
-1648380290 source:d:\studia\pwr\sdizo\p\projekt1\src\listimplementation.cpp
+1648381741 source:d:\studia\pwr\sdizo\p\projekt1\src\listimplementation.cpp
 	<iostream>
 	"ListImplementation.h"
 	<iomanip>
@@ -40,8 +40,9 @@
 	"DynamicArrayMenu.h"
 	"ListMenu.h"
 
-1648380406 source:d:\studia\pwr\sdizo\p\projekt1\src\main.cpp
+1648383324 source:d:\studia\pwr\sdizo\p\projekt1\src\main.cpp
 	<iostream>
+	<stdlib.h>
 	"Menu.h"
 
 1648377226 source:d:\studia\pwr\sdizo\p\projekt1\src\dynamicarraymenu.cpp
@@ -68,7 +69,7 @@
 1648341937 d:\studia\pwr\sdizo\p\projekt1\include\listmenu.h
 	<fstream>
 
-1648379552 source:d:\studia\pwr\sdizo\p\projekt1\src\heapmenu.cpp
+1648381678 source:d:\studia\pwr\sdizo\p\projekt1\src\heapmenu.cpp
 	<iostream>
 	"HeapMenu.h"
 	"Menu.h"

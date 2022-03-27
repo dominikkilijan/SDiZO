@@ -70,12 +70,7 @@ void ListImplementation::removeFromList(int index)
     }
     else if (index > 0 && index < listSize) // usuwanie ze srodka
     {
-       /* Node* temp = head;
 
-            for(int i=0; i<index; i++)
-            {
-                temp = temp->nextNode;
-            }*/
             Node* temp;
 
             if (index <= listSize/2) // dla pierwszej polowy wezlow pomocniczy wskaznik porusza sie od glowy
