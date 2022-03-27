@@ -13,7 +13,7 @@ class HeapMenu
 
         int heapChoice;
         int heapWork=1;
-        int numberOfElements;
+        int numberOfHeapElements;
         int initOption;
 
         int *fileArray;

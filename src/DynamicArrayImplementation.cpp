@@ -12,7 +12,7 @@ int arraySize;
 DynamicArrayImplementation::DynamicArrayImplementation(int cap)
 {
 
-    if(cap<0) cout<<"Nieprawidlowy rozmiar tablicy!"<<endl;
+    if(cap<0 || arraySize<0) cout<<"Nieprawidlowy rozmiar tablicy!"<<endl;
     arrayCapacity = cap;
     arraySize = 0;
     dArray = new int[arrayCapacity];
@@ -84,7 +84,7 @@ void DynamicArrayImplementation::addToDyArr(int index, int value)
     QueryPerformanceFrequency((LARGE_INTEGER *)&frequency);
     start = read_QPC();  // poczatek pomiaru czasu
 
-    if (index > arraySize)  cout<<"Nie mozna dodac elementu w to miejsce"<<endl;
+    if (index > arraySize || index < 0)  cout<<"Nie mozna dodac elementu w to miejsce"<<endl;
 
     else
     {
@@ -134,7 +134,7 @@ void DynamicArrayImplementation::printDyArray()
     {
         cout<<(int)dArray[i]<<"  ";
     }
-    cout<<endl;
+    cout<<endl<<"Dostepne miejsca w strukturze: "<<arrayCapacity<<endl;
     }
 }
 

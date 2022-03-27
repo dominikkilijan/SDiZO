@@ -114,8 +114,6 @@ void ListImplementation::removeFromList(int index)
     cout << "Time [ms] = " << setprecision(0) << (1000.0 * elapsed) /frequency << endl;
     cout << "Time [us] = " << setprecision(0) << (1000000.0 * elapsed) /frequency << endl << endl;
 
-
-   cout<<"listSize: "<<listSize<<endl;
 }
 
 void ListImplementation::addToList(int index, int value)
@@ -236,7 +234,7 @@ void ListImplementation::printList()
             temp = temp->nextNode;
 
         }
-    cout<<endl;
+    cout<<endl<<"Liczba elementow w strukturze: "<<listSize<<endl;;
     }
 }
 

@@ -9,6 +9,8 @@ int main()
 
     /**TODO:
     potestuj wszystko
+    default do switchy
+    nei mozna minusowych indeksow
 
     */
     return 0;

@@ -25,17 +25,23 @@ Menu::Menu()
         cout << "Wybor: ";
         cin >> choice;
 
-        if (choice !=4) // nie ma potrzeby wyswietlac opcji inicjalizacji przy wylaczaniu programu
+        if (choice < 4 && choice > 0) // nie ma potrzeby wyswietlac opcji inicjalizacji przy wylaczaniu programu
         {
         cout<<"Sposob wpisania poczatkowych danych"<<endl;
         cout<<"1. Reczne wpisywanie wartosci"<<endl;
         cout<<"2. Wygenerowanie liczb losowych"<<endl;
         cout<<"3. Wczytanie wartosci z pliku"<<endl;
         cin>>initChoice;
+        if (initChoice > 3 || initChoice < 0)
+        {
+            cout<<"Nieprawidlowy numer. Liczby beda wpiywane recznie"<<endl;
+            initChoice = 1;
+        }
+        else system("cls"); // czyszczenie konsoli
         }
 
 
-        system("cls"); // czyszczenie konsoli
+
 
         switch (choice)
         {
@@ -65,7 +71,10 @@ Menu::Menu()
             exit(0);
 
             break;
+        default:
+            cout<<"Nieprawidlowy numer polecenia. Sprobuj jeszcze raz"<<endl;
         }
+
     }
 }
 

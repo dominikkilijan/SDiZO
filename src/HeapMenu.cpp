@@ -12,6 +12,7 @@ int heapWork = 1;
 fstream heapFile;
 
 
+
 HeapMenu::HeapMenu(int option)
 {
         heapWork = 0;
@@ -21,21 +22,21 @@ HeapMenu::HeapMenu(int option)
         if (initOption != 3) // okreslenie liczby poczatkowych elementow
         {
         cout<<"Ile elementow w kopcu?"<<endl;
-        cin>>numberOfElements;
+        cin>>numberOfHeapElements;
         }
         else // liczba poczatkowych elementow jest juz zapisana w pliku tekstowym
         {
             getFileInfo();
-            numberOfElements = fileSize;
+            numberOfHeapElements = fileSize;
         }
 
 
         HeapImplenetation heap;
 
-        if (numberOfElements > 0 && initOption == 1) // reczne wpisanie wartosci
+        if (numberOfHeapElements > 0 && initOption == 1) // reczne wpisanie wartosci
         {
             cout<<"Wpisz wartosci"<<endl;
-            for(int i=0; i<numberOfElements; i++)
+            for(int i=0; i<numberOfHeapElements; i++)
             {
                 int val;
                 cin>>val;
@@ -43,21 +44,21 @@ HeapMenu::HeapMenu(int option)
             }
         }
 
-        if (numberOfElements > 0 && initOption == 2) // uzycie liczb pseudolosowych do wypelnienia listy
+        if (numberOfHeapElements > 0 && initOption == 2) // uzycie liczb pseudolosowych do wypelnienia listy
         {
             cout<<"Liczby losowe"<<endl;
             srand(time(NULL));
 
-            for (int i = 0; i < numberOfElements; i++)
+            for (int i = 0; i < numberOfHeapElements; i++)
             {
             heap.addToHeap(rand()%100);
             }
         }
-        if (numberOfElements > 0 && initOption == 3) // wpisanie do listy elementow z pliku
+        if (numberOfHeapElements > 0 && initOption == 3) // wpisanie do listy elementow z pliku
         {
             cout<<"Wczytywanie z pliku"<<endl;
-            cout<<"NoE = "<<numberOfElements<<endl;
-            for (int i = 0; i< numberOfElements; i++)
+            cout<<"NoE = "<<numberOfHeapElements<<endl;
+            for (int i = 0; i< numberOfHeapElements; i++)
             {
                 heap.addToHeap(fileArray[i]);
             }
@@ -122,6 +123,8 @@ HeapMenu::HeapMenu(int option)
             delete this;
             }
             break;
+        default:
+            cout<<"Nieprawidlowy numer polecenia. Sprobuj jeszcze raz"<<endl;
         }
         }
 }

@@ -180,6 +180,8 @@ DynamicArrayMenu::DynamicArrayMenu(int option)
             delete this;
             }
             break;
+        default:
+            cout<<"Nieprawidlowy numer polecenia. Sprobuj jeszcze raz"<<endl;
         }
         }
 }
