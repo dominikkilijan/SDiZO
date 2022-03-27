@@ -33,7 +33,11 @@ void ListImplementation::removeFromList(int index)
     QueryPerformanceFrequency((LARGE_INTEGER *)&frequency);
     start = read_QPC();  // poczatek pomiaru czasu
 
-    if (index < 0 || index > listSize-1 || listSize == 0) cout<<"Nie mozna usunac elementu. Nieprawidlowy numer indeksu"<<endl;
+    if (index < 0 || index > listSize-1 || listSize == 0)
+    {
+        cout<<"Nie mozna usunac elementu. Nieprawidlowy numer indeksu"<<endl;
+        return;
+    }
 
     else if (listSize == 1) // usuwanie ostatniego elementu
     {
@@ -135,9 +139,13 @@ void ListImplementation::addToList(int index, int value)
     }
     else if (listSize > 0) //dodawanie kolejnych elementow
     {
-        if (index < 0 || index > listSize) cout<<"Nie mozna dodac elementu. Nieprawidlowy numer indeksu"<<endl;
+        if (index < 0 || index > listSize)
+        {
+            cout<<"Nie mozna dodac elementu. Nieprawidlowy numer indeksu"<<endl;
+            return;
+        }
 
-        if (index == 0) //dodawanie elementu na poczatek
+        else if (index == 0) //dodawanie elementu na poczatek
         {
             cout<<"Dodawanie na poczatek"<<endl;
             newNode = new Node;
@@ -149,7 +157,7 @@ void ListImplementation::addToList(int index, int value)
 
         }
 
-        if (index == listSize) //dodawanie elementu na koniec
+        else if (index == listSize) //dodawanie elementu na koniec
         {
             cout<<"Dodawanie na koniec"<<endl;
             newNode = new Node;
@@ -161,7 +169,7 @@ void ListImplementation::addToList(int index, int value)
 
         }
 
-        if (index > 0 && index < listSize)
+        else if (index > 0 && index < listSize)
         {
             cout<<"Dodawanie do srodka"<<endl;
             newNode = new Node; //dodawanie elementu do srodka listy
