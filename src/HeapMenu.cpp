@@ -13,6 +13,7 @@ fstream heapFile;
 
 
 
+
 HeapMenu::HeapMenu(int option)
 {
         heapWork = 0;
@@ -31,6 +32,7 @@ HeapMenu::HeapMenu(int option)
         {
             getFileInfo();
             numberOfHeapElements = fileSize;
+            heapCap = fileSize+5;
         }
 
 
@@ -43,7 +45,7 @@ HeapMenu::HeapMenu(int option)
             {
                 int val;
                 cin>>val;
-                heap.addToHeap(val);
+                heap.addToHeap(val, 0);
             }
         }
 
@@ -54,7 +56,7 @@ HeapMenu::HeapMenu(int option)
 
             for (int i = 0; i < numberOfHeapElements; i++)
             {
-            heap.addToHeap(rand()%100);
+            heap.addToHeap(rand()%100, 0);
             }
         }
         if (numberOfHeapElements > 0 && initOption == 3) // wpisanie do listy elementow z pliku
@@ -63,7 +65,7 @@ HeapMenu::HeapMenu(int option)
             cout<<"NoE = "<<numberOfHeapElements<<endl;
             for (int i = 0; i< numberOfHeapElements; i++)
             {
-                heap.addToHeap(fileArray[i]);
+                heap.addToHeap(fileArray[i], 0);
             }
             delete [] fileArray;
         }
@@ -90,7 +92,10 @@ HeapMenu::HeapMenu(int option)
             int val;
             cout<<"Podaj wartosc dodawanego elementu: "<<endl;
             cin>>val;
-            heap.addToHeap(val); // dodawanie na koniec kopca
+
+            heap.addToHeap(val, 1); // dodawanie na koniec kopca
+
+
             heap.printHeap1();
             }
             break;
@@ -170,5 +175,6 @@ void HeapMenu::getFileInfo() // odczytywanie wartosci z pliku do nowej tablicy
     }
     else    cout << "File error - OPEN" << endl; // jesli nie znaleziono pliku o podanej nazwie
 }
+
 
 

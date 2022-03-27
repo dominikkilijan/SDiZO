@@ -24,13 +24,14 @@ class ListImplementation
 
         int listSize;
         int maxPrintSize;
+        int notInitialization;
 
         long long int frequency;
         long long int start;
         long long int elapsed;
 
 
-        void addToList(int, int);
+        void addToList(int, int, int);
         void printList();
         void printListBackwards();
         void removeFromList(int);

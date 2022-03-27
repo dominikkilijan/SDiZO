@@ -12,6 +12,7 @@ class HeapImplenetation
         int lengthSize;
         int heapSize;
         int maxPrintSize;
+        int notInitialization;
 
         long long int frequency;
         long long int start;
@@ -24,7 +25,7 @@ class HeapImplenetation
         void heapify(int);
         void heapSearch(int);
         void printHeap1();
-        void addToHeap(int);
+        void addToHeap(int, int);
         void removeHeapRoot();
         void buildHeap();
 

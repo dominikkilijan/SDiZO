@@ -1,13 +1,13 @@
 # depslib dependency file v1.0
-1648378402 source:d:\studia\pwr\sdizo\p\projekt1\src\dynamicarrayimplementation.cpp
+1648394360 source:d:\studia\pwr\sdizo\p\projekt1\src\dynamicarrayimplementation.cpp
 	<iostream>
 	"DynamicArrayImplementation.h"
 	<iomanip>
 	<windows.h>
 
-1648332473 d:\studia\pwr\sdizo\p\projekt1\include\dynamicarrayimplementation.h
+1648394182 d:\studia\pwr\sdizo\p\projekt1\include\dynamicarrayimplementation.h
 
-1648381061 source:d:\studia\pwr\sdizo\p\projekt1\src\heapimplenetation.cpp
+1648389186 source:d:\studia\pwr\sdizo\p\projekt1\src\heapimplenetation.cpp
 	"HeapImplenetation.h"
 	<math.h>
 	<iostream>
@@ -15,7 +15,7 @@
 	<iomanip>
 	<windows.h>
 
-1648381061 d:\studia\pwr\sdizo\p\projekt1\include\heapimplenetation.h
+1648389036 d:\studia\pwr\sdizo\p\projekt1\include\heapimplenetation.h
 
 1648381741 source:d:\studia\pwr\sdizo\p\projekt1\src\listimplementation.cpp
 	<iostream>
@@ -23,7 +23,7 @@
 	<iomanip>
 	<windows.h>
 
-1648311960 d:\studia\pwr\sdizo\p\projekt1\include\listimplementation.h
+1648394182 d:\studia\pwr\sdizo\p\projekt1\include\listimplementation.h
 
 1648037909 source:d:\studia\pwr\sdizo\p\projekt1\main.cpp
 	<iostream>
@@ -45,7 +45,7 @@
 	<stdlib.h>
 	"Menu.h"
 
-1648377226 source:d:\studia\pwr\sdizo\p\projekt1\src\dynamicarraymenu.cpp
+1648394265 source:d:\studia\pwr\sdizo\p\projekt1\src\dynamicarraymenu.cpp
 	<iostream>
 	"DynamicArrayMenu.h"
 	"Menu.h"
@@ -57,7 +57,7 @@
 1648334322 d:\studia\pwr\sdizo\p\projekt1\include\dynamicarraymenu.h
 	<fstream>
 
-1648377389 source:d:\studia\pwr\sdizo\p\projekt1\src\listmenu.cpp
+1648394320 source:d:\studia\pwr\sdizo\p\projekt1\src\listmenu.cpp
 	<iostream>
 	"ListMenu.h"
 	"Menu.h"
@@ -69,7 +69,7 @@
 1648341937 d:\studia\pwr\sdizo\p\projekt1\include\listmenu.h
 	<fstream>
 
-1648381678 source:d:\studia\pwr\sdizo\p\projekt1\src\heapmenu.cpp
+1648390560 source:d:\studia\pwr\sdizo\p\projekt1\src\heapmenu.cpp
 	<iostream>
 	"HeapMenu.h"
 	"Menu.h"
@@ -78,7 +78,7 @@
 	<cstdlib>
 	<time.h>
 
-1648381061 d:\studia\pwr\sdizo\p\projekt1\include\heapmenu.h
+1648390560 d:\studia\pwr\sdizo\p\projekt1\include\heapmenu.h
 	<HeapMenu.h>
 	<fstream>
 

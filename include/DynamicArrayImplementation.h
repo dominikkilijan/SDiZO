@@ -12,13 +12,14 @@ class DynamicArrayImplementation
         int arraySize;
         int arrayCapacity;
         int maxPrintSize;
+        int notInitialization;
 
         long long int frequency;
         long long int start;
         long long int elapsed;
 
         void checkIfResize();
-        void addToDyArr(int, int);
+        void addToDyArr(int, int, int);
         void printDyArray();
         void checkIfDownsize();
         void removeFromDyArray(int);

@@ -133,7 +133,7 @@ void HeapImplenetation::printHeap1()
 }
 
 // dodawanie elementu na ostatnia pozycje w kopcu i ewentualna zamiana miejscami
-void HeapImplenetation::addToHeap(int value)
+void HeapImplenetation::addToHeap(int value, int notinit)
 {
     QueryPerformanceFrequency((LARGE_INTEGER *)&frequency);
     start = read_QPC();  // poczatek pomiaru czasu
@@ -142,7 +142,6 @@ void HeapImplenetation::addToHeap(int value)
 
     else
     {
-    cout<<"Dodano element"<<endl;
     heapSize++;
     int i = heapSize-1; // indeks ostatniego (nowego) elementu
     length[i] = value;
@@ -151,9 +150,14 @@ void HeapImplenetation::addToHeap(int value)
     }
     elapsed = read_QPC() - start; // koniec pomiaru czasu
 
+    notInitialization = notinit;
+
+    if (notInitialization == 1)
+    {
     cout << "Time [s] = " << fixed << setprecision(3) << (float)elapsed /frequency << endl;
     cout << "Time [ms] = " << setprecision(0) << (1000.0 * elapsed) /frequency << endl;
     cout << "Time [us] = " << setprecision(0) << (1000000.0 * elapsed) /frequency << endl << endl;
+    }
 }
 
 // usuwanie korzenia kopca = najwszyzszej wartosci.

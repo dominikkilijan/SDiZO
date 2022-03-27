@@ -115,7 +115,7 @@ void ListImplementation::removeFromList(int index)
 
 }
 
-void ListImplementation::addToList(int index, int value)
+void ListImplementation::addToList(int index, int value, int notInit)
 {
 
     QueryPerformanceFrequency((LARGE_INTEGER *)&frequency);
@@ -123,7 +123,6 @@ void ListImplementation::addToList(int index, int value)
 
     if(listSize == 0) // dodawanie pierwszego elementu
     {
-        cout<<"Dodawanie pierwszego elementu"<<endl;
         newNode = new Node;
         newNode->data = value;
         newNode->nextNode = nullptr;
@@ -154,7 +153,6 @@ void ListImplementation::addToList(int index, int value)
 
         else if (index == listSize) //dodawanie elementu na koniec
         {
-            cout<<"Dodawanie na koniec"<<endl;
             newNode = new Node;
             newNode->data = value;
             newNode->nextNode = nullptr;
@@ -211,11 +209,15 @@ void ListImplementation::addToList(int index, int value)
 
     elapsed = read_QPC() - start;  // koniec pomiaru czasu
 
+    notInitialization = notInit;
+
+    if (notInitialization == 1)
+    {
     cout << "Time [s] = " << fixed << setprecision(3) << (float)elapsed /frequency << endl;
     cout << "Time [ms] = " << setprecision(0) << (1000.0 * elapsed) /frequency << endl;
     cout << "Time [us] = " << setprecision(0) << (1000000.0 * elapsed) /frequency << endl << endl;
+    }
 
-    cout<<"listSize: "<<listSize<<endl;
 }
 
 // wyswietlanie wszystkich lub max 15 kolejnych wartosci

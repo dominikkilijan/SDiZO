@@ -37,7 +37,7 @@ ListMenu::ListMenu(int option)
                 int val;
                 cin>>val;
 
-                linkedList.addToList(i, val);
+                linkedList.addToList(i, val, 0);
             }
         }
 
@@ -49,7 +49,7 @@ ListMenu::ListMenu(int option)
             for (int i = 0; i < numberOfElements; i++)
             {
 
-            linkedList.addToList(i, rand()%100);
+            linkedList.addToList(i, rand()%100, 0);
             }
         }
         if (numberOfElements > 0 && initOption == 3) // wpisanie do listy elementow z pliku
@@ -58,7 +58,7 @@ ListMenu::ListMenu(int option)
             cout<<"NoE = "<<numberOfElements<<endl;
             for (int i = 0; i< numberOfElements; i++)
             {
-                linkedList.addToList(i, fileArray[i]);
+                linkedList.addToList(i, fileArray[i], 0);
             }
             delete [] fileArray;
         }
@@ -90,7 +90,7 @@ ListMenu::ListMenu(int option)
                 int val;
                 cout<<"Podaj wartosc: ";
                 cin>>val;
-                linkedList.addToList(0, val); // dodawanie na index = 0
+                linkedList.addToList(0, val, 1); // dodawanie na index = 0
                 linkedList.printList();
             }
 
@@ -101,7 +101,7 @@ ListMenu::ListMenu(int option)
                 int val;
                 cout<<"Podaj wartosc: ";
                 cin>>val;
-                linkedList.addToList(linkedList.listSize, val); // dodawanie na ostatni index = listSize
+                linkedList.addToList(linkedList.listSize, val, 1); // dodawanie na ostatni index = listSize
                 linkedList.printList();
             }
 
@@ -116,7 +116,7 @@ ListMenu::ListMenu(int option)
                 int val;
                 cout<<"Podaj wartosc: ";
                 cin>>val;
-                linkedList.addToList(id, val); // dodawanie na wybrany indeks. Wczesniejsza wartosc jest przenoszona do nastepnego wezla
+                linkedList.addToList(id, val, 1); // dodawanie na wybrany indeks. Wczesniejsza wartosc jest przenoszona do nastepnego wezla
                 linkedList.printList();
             }
 

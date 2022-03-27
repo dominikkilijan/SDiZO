@@ -41,7 +41,7 @@ DynamicArrayMenu::DynamicArrayMenu(int option)
             {
                 int val;
                 cin>>val;
-                dynamicArray.addToDyArr(i, val);
+                dynamicArray.addToDyArr(i, val, 0);
             }
         }
 
@@ -52,7 +52,7 @@ DynamicArrayMenu::DynamicArrayMenu(int option)
 
             for (int i = 0; i < numberOfElements; i++)
             {
-            dynamicArray.addToDyArr(i, rand()%100);
+            dynamicArray.addToDyArr(i, rand()%100, 0);
             }
         }
         if (numberOfElements > 0 && initOption == 3) // wpisanie do tablicy elementow z pliku
@@ -61,7 +61,7 @@ DynamicArrayMenu::DynamicArrayMenu(int option)
             cout<<"NoE = "<<numberOfElements<<endl;
             for (int i = 0; i< numberOfElements; i++)
             {
-                dynamicArray.addToDyArr(i, fileArray[i]);
+                dynamicArray.addToDyArr(i, fileArray[i], 0);
             }
             delete [] fileArray;
         }
@@ -96,7 +96,7 @@ DynamicArrayMenu::DynamicArrayMenu(int option)
                 int val;
                 cout<<"Podaj wartosc: ";
                 cin>>val;
-                dynamicArray.addToDyArr(0, val); // dodawanie na index = 0
+                dynamicArray.addToDyArr(0, val, 1); // dodawanie na index = 0
                 dynamicArray.printDyArray();
             }
 
@@ -107,7 +107,7 @@ DynamicArrayMenu::DynamicArrayMenu(int option)
                 int val;
                 cout<<"Podaj wartosc: ";
                 cin>>val;
-                dynamicArray.addToDyArr(dynamicArray.arraySize, val); // dodawanie na ostatni index = arraySize
+                dynamicArray.addToDyArr(dynamicArray.arraySize, val, 1); // dodawanie na ostatni index = arraySize
                 dynamicArray.printDyArray();
             }
 
@@ -122,7 +122,7 @@ DynamicArrayMenu::DynamicArrayMenu(int option)
                 cout<<"Podaj wartosc: ";
                 cin>>val;
 
-                dynamicArray.addToDyArr(id, val); // dodawanie na wybrany indeks. Wczesniejsza wartosc jest przenoszona na nastepny indeks
+                dynamicArray.addToDyArr(id, val, 1); // dodawanie na wybrany indeks. Wczesniejsza wartosc jest przenoszona na nastepny indeks
                 dynamicArray.printDyArray();
             }
 
