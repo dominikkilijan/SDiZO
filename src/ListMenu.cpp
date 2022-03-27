@@ -16,12 +16,12 @@ ListMenu::ListMenu(int option)
         initOption = option;
 
 
-        if (initOption != 3)
+        if (initOption != 3) // okreslenie liczby poczatkowych elementow
         {
         cout<<"Ile elementow w liscie?"<<endl;
         cin>>numberOfElements;
         }
-        else
+        else // liczba poczatkowych elementow jest juz zapisana w pliku tekstowym
         {
             getFileInfo();
             numberOfElements = fileSize;
@@ -29,7 +29,7 @@ ListMenu::ListMenu(int option)
 
         ListImplementation linkedList;
 
-        if (numberOfElements > 0 && initOption == 1)
+        if (numberOfElements > 0 && initOption == 1) // reczne wpisanie wartosci
         {
             cout<<"Wpisz wartosci"<<endl;
             for(int i=0; i<numberOfElements; i++)
@@ -41,7 +41,7 @@ ListMenu::ListMenu(int option)
             }
         }
 
-        if (numberOfElements > 0 && initOption == 2)
+        if (numberOfElements > 0 && initOption == 2) // uzycie liczb pseudolosowych do wypelnienia listy
         {
             cout<<"Liczby losowe"<<endl;
             srand(time(NULL));
@@ -52,7 +52,7 @@ ListMenu::ListMenu(int option)
             linkedList.addToList(i, rand()%100);
             }
         }
-        if (numberOfElements > 0 && initOption == 3)
+        if (numberOfElements > 0 && initOption == 3) // wpisanie do listy elementow z pliku
         {
             cout<<"Wczytywanie z pliku"<<endl;
             cout<<"NoE = "<<numberOfElements<<endl;
@@ -60,6 +60,7 @@ ListMenu::ListMenu(int option)
             {
                 linkedList.addToList(i, fileArray[i]);
             }
+            delete [] fileArray;
         }
 
 
@@ -75,7 +76,7 @@ ListMenu::ListMenu(int option)
         cout << "5. Usun z konca "<<endl;
         cout << "6. Usun z wybranego miejsca "<<endl;
         cout << "7. Wyszukaj element "<<endl;
-        cout << "8. Sprawdz poprawnosc struktury "<<endl;
+        cout << "8. Wypisz elementy listy od przodu i od tylu "<<endl;
         cout << "9. Powrot do menu glownego "<<endl;
         cout << "------------------------------------------"<<endl;
         cout << "Wybor: ";
@@ -89,7 +90,7 @@ ListMenu::ListMenu(int option)
                 int val;
                 cout<<"Podaj wartosc: ";
                 cin>>val;
-                linkedList.addToList(0, val); //index = 0
+                linkedList.addToList(0, val); // dodawanie na index = 0
                 linkedList.printList();
             }
 
@@ -100,7 +101,7 @@ ListMenu::ListMenu(int option)
                 int val;
                 cout<<"Podaj wartosc: ";
                 cin>>val;
-                linkedList.addToList(linkedList.listSize, val); // index = listSize
+                linkedList.addToList(linkedList.listSize, val); // dodawanie na ostatni index = listSize
                 linkedList.printList();
             }
 
@@ -115,7 +116,7 @@ ListMenu::ListMenu(int option)
                 int val;
                 cout<<"Podaj wartosc: ";
                 cin>>val;
-                linkedList.addToList(id, val);
+                linkedList.addToList(id, val); // dodawanie na wybrany indeks. Wczesniejsza wartosc jest przenoszona do nastepnego wezla
                 linkedList.printList();
             }
 
@@ -123,7 +124,7 @@ ListMenu::ListMenu(int option)
 
         case 4:
             {
-            linkedList.removeFromList(0);
+            linkedList.removeFromList(0); // usuwanie pierwszego elementu (z indeksu = 0)
             linkedList.printList();
             }
 
@@ -131,7 +132,7 @@ ListMenu::ListMenu(int option)
 
         case 5:
             {
-            linkedList.removeFromList(linkedList.listSize-1);
+            linkedList.removeFromList(linkedList.listSize-1); // usuwanie wezla z konca listy
             linkedList.printList();
             }
 
@@ -142,7 +143,7 @@ ListMenu::ListMenu(int option)
                 int id;
                 cout<<"Podaj indeks: ";
                 cin>>id;
-                linkedList.removeFromList(id);
+                linkedList.removeFromList(id); // usuwanie z wybranego miejsca
                 linkedList.printList();
             }
 
@@ -153,14 +154,14 @@ ListMenu::ListMenu(int option)
                 int val;
                 cout<<"Podaj wartosc: ";
                 cin>>val;
-                linkedList.searchList(val);
+                linkedList.searchList(val); // szukanie wartosci w strukturze
                 linkedList.printList();
             }
             break;
 
         case 8:
             {
-                linkedList.printList();
+                linkedList.printList(); // wyswietlanie max 15 elementow od przodu i od tylu
                 linkedList.printListBackwards();
             }
 
@@ -168,7 +169,7 @@ ListMenu::ListMenu(int option)
 
         case 9:
             {
-            Menu menu;
+            Menu menu; // powrot do menu glownego
             delete this;
             }
             break;
@@ -178,10 +179,10 @@ ListMenu::ListMenu(int option)
 
 ListMenu::~ListMenu()
 {
-    cout<<"elo list menu"<<endl;
+    delete [] fileArray;
 }
 
-void ListMenu::getFileInfo()
+void ListMenu::getFileInfo() // odczytywanie wartosci z pliku do nowej tablicy
 {
     listFile.open("Values.txt", ios::in);
     int val;
@@ -189,7 +190,7 @@ void ListMenu::getFileInfo()
     if(listFile.is_open())
     {
     listFile >> fileSize;
-    if(listFile.fail())  cout << "File error - READ SIZE" << endl;
+    if(listFile.fail())  cout << "File error - READ SIZE" << endl; // jesli plik jest pusty
     else
     {
     fileArray = new int [fileSize];
@@ -201,7 +202,7 @@ void ListMenu::getFileInfo()
 
         if(listFile.fail())
         {
-            cout << "File error - READ DATA" << endl;
+            cout << "File error - READ DATA" << endl; // jesli w pliku jest tylko rozmiar>0
             break;
         }
         else
@@ -212,5 +213,5 @@ void ListMenu::getFileInfo()
     }
     listFile.close();
     }
-    else    cout << "File error - OPEN" << endl;
+    else    cout << "File error - OPEN" << endl; // jesli nie znaleziono pliku o podanej nazwie
 }

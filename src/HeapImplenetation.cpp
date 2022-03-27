@@ -12,7 +12,7 @@ int *length;
 int lengthSize;
 
 
-HeapImplenetation::HeapImplenetation(int heapS)
+HeapImplenetation::HeapImplenetation()
 {
     lengthSize=20;
     length = new int [lengthSize];
@@ -94,8 +94,8 @@ void HeapImplenetation::heapify(int i)
     }
 }
 
-// wyswietlanie elementow kopca po tyle elementow ile byloby rysowane na kartce. Nie sa zachowane odleglosci i nie ma linii miedzy rodzicem i dziecmi
-// wyswietlanie wszystkich lub max 15 kolejnych wartosci
+// wyswietlanie elementow kopca po tyle elementow ile byloby rysowane na kartce. Dzieci znajduja sie prawie pod rodzicami. Jesli wartosci jednosci i dziesietne wystepuja obok siebie
+// to kopiec troche sie rozjezdza. Wyswietlanie wszystkich lub max 15 kolejnych wartosci
 void HeapImplenetation::printHeap1()
 {
     if (heapSize<=0)   cout<<"Nie ma elementow do wyswietlenia"<<endl;
@@ -109,7 +109,7 @@ void HeapImplenetation::printHeap1()
 
     int bin=0;
     int elementsInLine=0;
-    string spaces[8] = {"       ", "", "   ", "    ", " ", "  ", "", " "};
+    string spaces[8] = {"       ", "", "   ", "    ", " ", "  ", "", " "}; // do ulozenia wartosci w ksztalt drzewa zastosowane sa rozne odleglosci zbudowane ze spacji
     string *beginSpaces= &spaces[0];
     string *endSpaces= &spaces[1];
     for(int i=0;i<maxPrintSize;i++)
@@ -123,8 +123,8 @@ void HeapImplenetation::printHeap1()
             cout<<endl;
             bin++;
             elementsInLine=0; // po kazdej potedze 2 licznik jest zerowany
-            beginSpaces +=2;
-            endSpaces +=2;
+            beginSpaces +=2; // dla kazdego poziomu kopca jest osobna para odstepow
+            endSpaces +=2; // +2 to wiec przesuniecie na nastepna pare spacji
 
         }
 

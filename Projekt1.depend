@@ -1,13 +1,13 @@
 # depslib dependency file v1.0
-1648329752 source:d:\studia\pwr\sdizo\p\projekt1\src\dynamicarrayimplementation.cpp
+1648333352 source:d:\studia\pwr\sdizo\p\projekt1\src\dynamicarrayimplementation.cpp
 	<iostream>
 	"DynamicArrayImplementation.h"
 	<iomanip>
 	<windows.h>
 
-1648328873 d:\studia\pwr\sdizo\p\projekt1\include\dynamicarrayimplementation.h
+1648332473 d:\studia\pwr\sdizo\p\projekt1\include\dynamicarrayimplementation.h
 
-1648335576 source:d:\studia\pwr\sdizo\p\projekt1\src\heapimplenetation.cpp
+1648347629 source:d:\studia\pwr\sdizo\p\projekt1\src\heapimplenetation.cpp
 	"HeapImplenetation.h"
 	<math.h>
 	<iostream>
@@ -15,37 +15,37 @@
 	<iomanip>
 	<windows.h>
 
-1648309504 d:\studia\pwr\sdizo\p\projekt1\include\heapimplenetation.h
+1648347629 d:\studia\pwr\sdizo\p\projekt1\include\heapimplenetation.h
 
-1648309504 source:d:\studia\pwr\sdizo\p\projekt1\src\listimplementation.cpp
+1648313104 source:d:\studia\pwr\sdizo\p\projekt1\src\listimplementation.cpp
 	<iostream>
 	"ListImplementation.h"
 	<iomanip>
 	<windows.h>
 
-1648308360 d:\studia\pwr\sdizo\p\projekt1\include\listimplementation.h
+1648311960 d:\studia\pwr\sdizo\p\projekt1\include\listimplementation.h
 
 1648037909 source:d:\studia\pwr\sdizo\p\projekt1\main.cpp
 	<iostream>
 	"Menu.h"
 
-1648333475 d:\studia\pwr\sdizo\p\projekt1\include\menu.h
+1648337075 d:\studia\pwr\sdizo\p\projekt1\include\menu.h
 	<iostream>
 	<fstream>
 
-1648338483 source:d:\studia\pwr\sdizo\p\projekt1\src\menu.cpp
+1648345671 source:d:\studia\pwr\sdizo\p\projekt1\src\menu.cpp
 	<iostream>
 	"Menu.h"
 	"HeapMenu.h"
 	"DynamicArrayMenu.h"
 	"ListMenu.h"
 
-1648314003 source:d:\studia\pwr\sdizo\p\projekt1\src\main.cpp
+1648342425 source:d:\studia\pwr\sdizo\p\projekt1\src\main.cpp
 	<iostream>
 	"Menu.h"
 	"HeapImplenetation.h"
 
-1648330791 source:d:\studia\pwr\sdizo\p\projekt1\src\dynamicarraymenu.cpp
+1648347149 source:d:\studia\pwr\sdizo\p\projekt1\src\dynamicarraymenu.cpp
 	<iostream>
 	"DynamicArrayMenu.h"
 	"Menu.h"
@@ -54,19 +54,22 @@
 	<cstdlib>
 	<time.h>
 
-1648330722 d:\studia\pwr\sdizo\p\projekt1\include\dynamicarraymenu.h
+1648334322 d:\studia\pwr\sdizo\p\projekt1\include\dynamicarraymenu.h
 	<fstream>
 
-1648301543 source:d:\studia\pwr\sdizo\p\projekt1\src\listmenu.cpp
+1648347170 source:d:\studia\pwr\sdizo\p\projekt1\src\listmenu.cpp
 	<iostream>
 	"ListMenu.h"
 	"Menu.h"
 	"ListImplementation.h"
+	<fstream>
+	<cstdlib>
+	<time.h>
 
-1648338337 d:\studia\pwr\sdizo\p\projekt1\include\listmenu.h
+1648341937 d:\studia\pwr\sdizo\p\projekt1\include\listmenu.h
 	<fstream>
 
-1648335437 source:d:\studia\pwr\sdizo\p\projekt1\src\heapmenu.cpp
+1648347669 source:d:\studia\pwr\sdizo\p\projekt1\src\heapmenu.cpp
 	<iostream>
 	"HeapMenu.h"
 	"Menu.h"
@@ -75,7 +78,7 @@
 	<cstdlib>
 	<time.h>
 
-1648335372 d:\studia\pwr\sdizo\p\projekt1\include\heapmenu.h
+1648338972 d:\studia\pwr\sdizo\p\projekt1\include\heapmenu.h
 	<HeapMenu.h>
 	<fstream>
 

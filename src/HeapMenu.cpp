@@ -18,21 +18,21 @@ HeapMenu::HeapMenu(int option)
         initOption = option;
 
 
-        if (initOption != 3)
+        if (initOption != 3) // okreslenie liczby poczatkowych elementow
         {
         cout<<"Ile elementow w kopcu?"<<endl;
         cin>>numberOfElements;
         }
-        else
+        else // liczba poczatkowych elementow jest juz zapisana w pliku tekstowym
         {
             getFileInfo();
             numberOfElements = fileSize;
         }
 
 
-        HeapImplenetation heap(numberOfElements);
+        HeapImplenetation heap;
 
-        if (numberOfElements > 0 && initOption == 1)
+        if (numberOfElements > 0 && initOption == 1) // reczne wpisanie wartosci
         {
             cout<<"Wpisz wartosci"<<endl;
             for(int i=0; i<numberOfElements; i++)
@@ -43,7 +43,7 @@ HeapMenu::HeapMenu(int option)
             }
         }
 
-        if (numberOfElements > 0 && initOption == 2)
+        if (numberOfElements > 0 && initOption == 2) // uzycie liczb pseudolosowych do wypelnienia listy
         {
             cout<<"Liczby losowe"<<endl;
             srand(time(NULL));
@@ -53,7 +53,7 @@ HeapMenu::HeapMenu(int option)
             heap.addToHeap(rand()%100);
             }
         }
-        if (numberOfElements > 0 && initOption == 3)
+        if (numberOfElements > 0 && initOption == 3) // wpisanie do listy elementow z pliku
         {
             cout<<"Wczytywanie z pliku"<<endl;
             cout<<"NoE = "<<numberOfElements<<endl;
@@ -61,6 +61,7 @@ HeapMenu::HeapMenu(int option)
             {
                 heap.addToHeap(fileArray[i]);
             }
+            delete [] fileArray;
         }
 
         while(heapWork==0)
@@ -71,7 +72,7 @@ HeapMenu::HeapMenu(int option)
         cout << "1. Dodaj element "<<endl;
         cout << "2. Usun korzen "<<endl;
         cout << "3. Wyszukaj element "<<endl;
-        cout << "4. Sprawdz poprawnosc struktury "<<endl;
+        cout << "4. Wypisz elementy struktury "<<endl;
         cout << "5. Powrot do menu glownego "<<endl;
         cout << "------------------------------------------"<<endl;
         cout << "Wybor: ";
@@ -85,14 +86,14 @@ HeapMenu::HeapMenu(int option)
             int val;
             cout<<"Podaj wartosc dodawanego elementu: "<<endl;
             cin>>val;
-            heap.addToHeap(val);
+            heap.addToHeap(val); // dodawanie na koniec kopca
             heap.printHeap1();
             }
             break;
 
         case 2:
             {
-            heap.removeHeapRoot();
+            heap.removeHeapRoot(); // usuwanie korzenia
             heap.printHeap1();
             }
 
@@ -103,21 +104,21 @@ HeapMenu::HeapMenu(int option)
             int val;
             cout<<"Podaj wartosc szukanego elementu: "<<endl;
             cin>>val;
-            heap.heapSearch(val);
+            heap.heapSearch(val); // szukanie wartosci w strukturze
             heap.printHeap1();
             }
 
             break;
 
         case 4:
-            heap.printHeap1();
+            heap.printHeap1(); // wyswietlanie max 15 elementow
 
             break;
 
         case 5:
             {
             heapWork =1;
-            Menu menu;
+            Menu menu; // powrot do menu glownego
             delete this;
             }
             break;
@@ -127,10 +128,10 @@ HeapMenu::HeapMenu(int option)
 
 HeapMenu::~HeapMenu()
 {
-
+    delete [] fileArray;
 }
 
-void HeapMenu::getFileInfo()
+void HeapMenu::getFileInfo() // odczytywanie wartosci z pliku do nowej tablicy
 {
     heapFile.open("Values.txt", ios::in);
     int val;
@@ -138,7 +139,7 @@ void HeapMenu::getFileInfo()
     if(heapFile.is_open())
     {
     heapFile >> fileSize;
-    if(heapFile.fail())  cout << "File error - READ SIZE" << endl;
+    if(heapFile.fail())  cout << "File error - READ SIZE" << endl; // jesli plik jest pusty
     else
     {
     fileArray = new int [fileSize];
@@ -150,7 +151,7 @@ void HeapMenu::getFileInfo()
 
         if(heapFile.fail())
         {
-            cout << "File error - READ DATA" << endl;
+            cout << "File error - READ DATA" << endl; // jesli w pliku jest tylko rozmiar>0
             break;
         }
         else
@@ -161,7 +162,7 @@ void HeapMenu::getFileInfo()
     }
     heapFile.close();
     }
-    else    cout << "File error - OPEN" << endl;
+    else    cout << "File error - OPEN" << endl; // jesli nie znaleziono pliku o podanej nazwie
 }
 
 

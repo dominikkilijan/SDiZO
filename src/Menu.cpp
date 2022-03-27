@@ -3,7 +3,6 @@
 #include "HeapMenu.h"
 #include "DynamicArrayMenu.h"
 #include "ListMenu.h"
-//#include <fstream>
 
 using namespace std;
 
@@ -11,36 +10,11 @@ int work =0;
 
 Menu::Menu()
 {
-        int initChoice = 0;
+        int initChoice = 0; // wybor inicjalizacji
 
-
-
-       /* switch (initChoice)
+        while(work == 0) // ciagle wyswietlaj menu
         {
-        case 1:
-
-
-            {
-                cout<<"No to se wpisuj"<<endl;
-            }
-            break;
-        case 2:
-            {
-                cout<<"Wygenerowano liczby"<<endl;
-            }
-            break;
-        case 3:
-            {
-                cout<<"Wczytano wartosci"<<endl;
-            }
-            break;
-        }*/
-
-
-
-        while(work == 0)
-        {
-        int choice=0;
+        int choice=0; // wybor struktury
         cout << endl<<"MENU GLOWNE:"<<endl;
         cout << "------------------------------------------"<<endl;
         cout << "1. Dynamiczna tablica "<<endl;
@@ -51,11 +25,14 @@ Menu::Menu()
         cout << "Wybor: ";
         cin >> choice;
 
-        cout<<"Co chcesz zrobic?"<<endl;
-        cout<<"1. Recznie wpisywac wartosci"<<endl;
-        cout<<"2. Wygenerowac losowe liczby"<<endl;
-        cout<<"3. Wczytac wartosci z pliku"<<endl;
+        if (choice !=4) // nie ma potrzeby wyswietlac opcji inicjalizacji przy wylaczaniu programu
+        {
+        cout<<"Sposob wpisania poczatkowych danych"<<endl;
+        cout<<"1. Reczne wpisywanie wartosci"<<endl;
+        cout<<"2. Wygenerowanie liczb losowych"<<endl;
+        cout<<"3. Wczytanie wartosci z pliku"<<endl;
         cin>>initChoice;
+        }
 
 
         system("cls"); // czyszczenie konsoli

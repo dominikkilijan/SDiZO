@@ -21,12 +21,12 @@ DynamicArrayMenu::DynamicArrayMenu(int option)
         int initialCap;
         cin>>initialCap;
 
-        if (initOption != 3)
+        if (initOption != 3) // okreslenie liczby poczatkowych elementow
         {
         cout<<"Ile elementow w dynamicznej tablicy?"<<endl;
         cin>>numberOfElements;
         }
-        else
+        else // liczba poczatkowych elementow jest juz zapisana w pliku tekstowym
         {
             getFileInfo();
             numberOfElements = fileSize;
@@ -34,7 +34,7 @@ DynamicArrayMenu::DynamicArrayMenu(int option)
 
         DynamicArrayImplementation dynamicArray(initialCap);
 
-        if (numberOfElements > 0 && initOption == 1)
+        if (numberOfElements > 0 && initOption == 1) // reczne wpisanie wartosci
         {
             cout<<"Wpisz wartosci"<<endl;
             for(int i=0; i<numberOfElements; i++)
@@ -45,7 +45,7 @@ DynamicArrayMenu::DynamicArrayMenu(int option)
             }
         }
 
-        if (numberOfElements > 0 && initOption == 2)
+        if (numberOfElements > 0 && initOption == 2) // uzycie liczb pseudolosowych do wypelnienia tablicy
         {
             cout<<"Liczby losowe"<<endl;
             srand(time(NULL));
@@ -55,7 +55,7 @@ DynamicArrayMenu::DynamicArrayMenu(int option)
             dynamicArray.addToDyArr(i, rand()%100);
             }
         }
-        if (numberOfElements > 0 && initOption == 3)
+        if (numberOfElements > 0 && initOption == 3) // wpisanie do tablicy elementow z pliku
         {
             cout<<"Wczytywanie z pliku"<<endl;
             cout<<"NoE = "<<numberOfElements<<endl;
@@ -63,6 +63,7 @@ DynamicArrayMenu::DynamicArrayMenu(int option)
             {
                 dynamicArray.addToDyArr(i, fileArray[i]);
             }
+            delete [] fileArray;
         }
 
 
@@ -81,7 +82,7 @@ DynamicArrayMenu::DynamicArrayMenu(int option)
         cout << "5. Usun z konca "<<endl;
         cout << "6. Usun z wybranego miejsca "<<endl;
         cout << "7. Wyszukaj element "<<endl;
-        cout << "8. Sprawdz poprawnosc struktury "<<endl;
+        cout << "8. Wyswietl elementy tablicy "<<endl;
         cout << "9. Powrot do menu glownego "<<endl;
         cout << "------------------------------------------"<<endl;
         cout << "Wybor: ";
@@ -95,7 +96,7 @@ DynamicArrayMenu::DynamicArrayMenu(int option)
                 int val;
                 cout<<"Podaj wartosc: ";
                 cin>>val;
-                dynamicArray.addToDyArr(0, val);
+                dynamicArray.addToDyArr(0, val); // dodawanie na index = 0
                 dynamicArray.printDyArray();
             }
 
@@ -106,7 +107,7 @@ DynamicArrayMenu::DynamicArrayMenu(int option)
                 int val;
                 cout<<"Podaj wartosc: ";
                 cin>>val;
-                dynamicArray.addToDyArr(dynamicArray.arraySize, val);
+                dynamicArray.addToDyArr(dynamicArray.arraySize, val); // dodawanie na ostatni index = arraySize
                 dynamicArray.printDyArray();
             }
 
@@ -121,7 +122,7 @@ DynamicArrayMenu::DynamicArrayMenu(int option)
                 cout<<"Podaj wartosc: ";
                 cin>>val;
 
-                dynamicArray.addToDyArr(id, val);
+                dynamicArray.addToDyArr(id, val); // dodawanie na wybrany indeks. Wczesniejsza wartosc jest przenoszona na nastepny indeks
                 dynamicArray.printDyArray();
             }
 
@@ -129,7 +130,7 @@ DynamicArrayMenu::DynamicArrayMenu(int option)
 
         case 4:
             {
-            dynamicArray.removeFromDyArray(0);
+            dynamicArray.removeFromDyArray(0); // usuwanie pierwszego elementu ( indeks = 0)
             dynamicArray.printDyArray();
             }
 
@@ -137,7 +138,7 @@ DynamicArrayMenu::DynamicArrayMenu(int option)
 
         case 5:
             {
-            dynamicArray.removeFromDyArray(dynamicArray.arraySize);
+            dynamicArray.removeFromDyArray(dynamicArray.arraySize); // usuwanie wartosci z konca
             dynamicArray.printDyArray();
             }
 
@@ -149,7 +150,7 @@ DynamicArrayMenu::DynamicArrayMenu(int option)
                 cout<<"Podaj indeks: ";
                 cin>>id;
 
-                dynamicArray.removeFromDyArray(id);
+                dynamicArray.removeFromDyArray(id); // usuwanie z wybranego miejsca
                 dynamicArray.printDyArray();
             }
 
@@ -160,7 +161,7 @@ DynamicArrayMenu::DynamicArrayMenu(int option)
                 int val;
                 cout<<"Podaj wartosc: ";
                 cin>>val;
-                dynamicArray.arraySearch(val);
+                dynamicArray.arraySearch(val); // szukanie wartosci w strukturze
                 dynamicArray.printDyArray();
             }
 
@@ -168,14 +169,14 @@ DynamicArrayMenu::DynamicArrayMenu(int option)
             break;
 
         case 8:
-            dynamicArray.printDyArray();
+            dynamicArray.printDyArray(); // wyswietlanie max 15 elementow
 
             break;
 
         case 9:
             {
             arrayWork=1;
-            Menu menu;
+            Menu menu; // powrot do menu glownego
             delete this;
             }
             break;
@@ -185,10 +186,10 @@ DynamicArrayMenu::DynamicArrayMenu(int option)
 
 DynamicArrayMenu::~DynamicArrayMenu()
 {
-    cout<<"elo array menu"<<endl;
+    delete [] fileArray;
 }
 
-void DynamicArrayMenu::getFileInfo()
+void DynamicArrayMenu::getFileInfo() // odczytywanie wartosci z pliku do nowej tablicy
 {
     file.open("Values.txt", ios::in);
     int val;
@@ -196,7 +197,7 @@ void DynamicArrayMenu::getFileInfo()
     if(file.is_open())
     {
     file >> fileSize;
-    if(file.fail())  cout << "File error - READ SIZE" << endl;
+    if(file.fail())  cout << "File error - READ SIZE" << endl; // jesli plik jest pusty
     else
     {
     fileArray = new int [fileSize];
@@ -208,7 +209,7 @@ void DynamicArrayMenu::getFileInfo()
 
         if(file.fail())
         {
-            cout << "File error - READ DATA" << endl;
+            cout << "File error - READ DATA" << endl; // jesli w pliku jest tylko rozmiar>0
             break;
         }
         else
@@ -219,5 +220,5 @@ void DynamicArrayMenu::getFileInfo()
     }
     file.close();
     }
-    else    cout << "File error - OPEN" << endl;
+    else    cout << "File error - OPEN" << endl; // jesli nie znaleziono pliku o podanej nazwie
 }
