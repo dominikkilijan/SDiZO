@@ -6,11 +6,13 @@
 
 using namespace std;
 
-int work =0;
+int work;
 
 Menu::Menu()
 {
         int initChoice = 0; // wybor inicjalizacji
+
+        work = 0;
 
         while(work == 0) // ciagle wyswietlaj menu
         {
@@ -80,7 +82,7 @@ Menu::Menu()
 
 Menu::~Menu()
 {
-    cout<<"elo menu"<<endl;
+
 }
 
 

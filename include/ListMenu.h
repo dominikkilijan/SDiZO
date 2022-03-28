@@ -15,7 +15,7 @@ class ListMenu
         int initOption;
         int numberOfElements;
 
-        int *fileArray;
+        int *fileListArray;
         int fileSize;
 
 

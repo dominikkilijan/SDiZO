@@ -25,6 +25,7 @@ HeapMenu::HeapMenu(int option)
         cout<<"Maksymalna pojemnosc kopca?"<<endl;
         cin>>heapCap;
 
+
         cout<<"Ile elementow w kopcu?"<<endl;
         cin>>numberOfHeapElements;
         }
@@ -94,8 +95,6 @@ HeapMenu::HeapMenu(int option)
             cin>>val;
 
             heap.addToHeap(val, 1); // dodawanie na koniec kopca
-
-
             heap.printHeap1();
             }
             break;

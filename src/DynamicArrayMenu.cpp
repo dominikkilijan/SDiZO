@@ -5,6 +5,7 @@
 #include <fstream>
 #include <cstdlib>
 #include <time.h>
+#include <math.h>
 
 using namespace std;
 
@@ -94,8 +95,11 @@ DynamicArrayMenu::DynamicArrayMenu(int option)
         case 1:
             {
                 int val;
+
                 cout<<"Podaj wartosc: ";
                 cin>>val;
+                //val = 100;
+
                 dynamicArray.addToDyArr(0, val, 1); // dodawanie na index = 0
                 dynamicArray.printDyArray();
             }

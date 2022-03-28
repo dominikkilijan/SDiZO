@@ -8,11 +8,12 @@
 
 using namespace std;
 
+int listWork = 0;
 fstream listFile;
 
 ListMenu::ListMenu(int option)
 {
-        listWork = 0;
+
         initOption = option;
 
 
@@ -41,7 +42,7 @@ ListMenu::ListMenu(int option)
             }
         }
 
-        if (numberOfElements > 0 && initOption == 2) // uzycie liczb pseudolosowych do wypelnienia listy
+        else if (numberOfElements > 0 && initOption == 2) // uzycie liczb pseudolosowych do wypelnienia listy
         {
             cout<<"Liczby losowe"<<endl;
             srand(time(NULL));
@@ -52,17 +53,18 @@ ListMenu::ListMenu(int option)
             linkedList.addToList(i, rand()%100, 0);
             }
         }
-        if (numberOfElements > 0 && initOption == 3) // wpisanie do listy elementow z pliku
+        else if (numberOfElements > 0 && initOption == 3) // wpisanie do listy elementow z pliku
         {
             cout<<"Wczytywanie z pliku"<<endl;
             cout<<"NoE = "<<numberOfElements<<endl;
             for (int i = 0; i< numberOfElements; i++)
             {
-                linkedList.addToList(i, fileArray[i], 0);
+                linkedList.addToList(i, fileListArray[i], 0);
             }
-            delete [] fileArray;
+            delete [] fileListArray;
         }
 
+        listWork = 0;
 
         while(listWork == 0)
         {
@@ -90,8 +92,10 @@ ListMenu::ListMenu(int option)
                 int val;
                 cout<<"Podaj wartosc: ";
                 cin>>val;
+
                 linkedList.addToList(0, val, 1); // dodawanie na index = 0
                 linkedList.printList();
+
             }
 
             break;
@@ -181,7 +185,7 @@ ListMenu::ListMenu(int option)
 
 ListMenu::~ListMenu()
 {
-    delete [] fileArray;
+    delete [] fileListArray;
 }
 
 void ListMenu::getFileInfo() // odczytywanie wartosci z pliku do nowej tablicy
@@ -195,7 +199,7 @@ void ListMenu::getFileInfo() // odczytywanie wartosci z pliku do nowej tablicy
     if(listFile.fail())  cout << "File error - READ SIZE" << endl; // jesli plik jest pusty
     else
     {
-    fileArray = new int [fileSize];
+    fileListArray = new int [fileSize];
 
 
     for(int i = 0; i < fileSize; i++)
@@ -209,7 +213,7 @@ void ListMenu::getFileInfo() // odczytywanie wartosci z pliku do nowej tablicy
         }
         else
         {
-            fileArray[i] = val;
+            fileListArray[i] = val;
         }
     }
     }

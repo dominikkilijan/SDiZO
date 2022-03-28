@@ -114,7 +114,7 @@ void DynamicArrayImplementation::addToDyArr(int index, int value, int notInit)
 
     notInitialization = notInit;
 
-    if (notInitialization == 1)
+    if (notInitialization == 1) // nie ma sensu wyswietlac czasow podczas inicjalizacji tysiecy elementow
     {
     cout << "Time [s] = " << fixed << setprecision(3) << (float)elapsed /frequency << endl;
     cout << "Time [ms] = " << setprecision(0) << (1000.0 * elapsed) /frequency << endl;
